@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["id", "persona", "version", "sellers", "channels", "evaluator"],
+  "properties": {
+    "id": {"type": "string"},
+    "persona": {"type": "string"},
+    "version": {"type": "string"},
+    "sellers": {"type": "array", "items": {"type": "string"}},
+    "channels": {"type": "array", "items": {"type": "string"}},
+    "evaluator": {"type": "string"}
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pc_build_v1",
+  "persona": "gaming_pc_buyer",
+  "version": "0.1",
+  "description": "A buyer deciding between separate parts and a prebuilt gaming PC under budget.",
+  "default_ship_to": "94103",
+  "sellers": ["microcenter_sim", "newegg_sim", "custom_pc_builders"],
+  "channels": ["website", "email", "cart"],
+  "evaluator": "procurement"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["status", "summary"],
+  "properties": {
+    "status": {"type": "string"},
+    "summary": {"type": "string"},
+    "chosen_sellers": {"type": "array", "items": {"type": "string"}},
+    "estimated_total_usd": {"type": "number"}
+  }
+}

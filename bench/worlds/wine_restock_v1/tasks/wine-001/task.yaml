@@ -1,0 +1,19 @@
+{
+  "id": "wine-001",
+  "world": "wine_restock_v1",
+  "split": "demo",
+  "task_type": "fixed_list",
+  "title": "Wine shop restock",
+  "config": {
+    "ground_truth_price_basis": "list",
+    "allowed_sellers": ["vintage_cellars", "bay_wine_co", "napa_direct"],
+    "items": [
+      {"item_id": "wine_caymus", "name": "Caymus Cabernet Sauvignon Napa Valley 2021", "qty": 12, "substitutable": false},
+      {"item_id": "wine_kistler", "name": "Kistler Chardonnay Les Noisetiers 2022", "qty": 6, "substitutable": false},
+      {"item_id": "wine_veuve", "name": "Veuve Clicquot Yellow Label Brut NV", "qty": 24, "substitutable": false}
+    ],
+    "constraints": {"ship_to": "94103", "max_sellers": 3, "budget_usd": null}
+  },
+  "expected_response": {"type": "cart_assembly_v1"},
+  "limits": {"max_wall_clock_seconds": 420, "max_actions": 160, "max_inference_usd": 2.0}
+}

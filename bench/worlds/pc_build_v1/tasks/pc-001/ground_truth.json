@@ -1,0 +1,168 @@
+{
+  "_generated_by": "bench/harness/compile_ground_truth.py",
+  "list_price_best_allocation": [
+    {
+      "basis": "list",
+      "category": "cpu",
+      "item_id": "cpu",
+      "line_total_usd": 219.0,
+      "name": "AMD Ryzen 5 7600",
+      "qty": 1,
+      "seller_id": "microcenter_sim",
+      "sku": "MC-R5-7600",
+      "unit_price_usd": 219.0
+    },
+    {
+      "basis": "list",
+      "category": "gpu",
+      "item_id": "gpu",
+      "line_total_usd": 379.0,
+      "name": "RTX 4060 Ti 8GB",
+      "qty": 1,
+      "seller_id": "newegg_sim",
+      "sku": "NE-4060TI",
+      "unit_price_usd": 379.0
+    },
+    {
+      "basis": "list",
+      "category": "motherboard",
+      "item_id": "motherboard",
+      "line_total_usd": 129.0,
+      "name": "B650M motherboard",
+      "qty": 1,
+      "seller_id": "newegg_sim",
+      "sku": "NE-B650M",
+      "unit_price_usd": 129.0
+    },
+    {
+      "basis": "list",
+      "category": "ram",
+      "item_id": "ram",
+      "line_total_usd": 65.0,
+      "name": "16GB DDR5-5200",
+      "qty": 1,
+      "seller_id": "newegg_sim",
+      "sku": "NE-DDR5-16",
+      "unit_price_usd": 65.0
+    },
+    {
+      "basis": "list",
+      "category": "storage",
+      "item_id": "storage",
+      "line_total_usd": 72.0,
+      "name": "1TB NVMe Gen4 SSD",
+      "qty": 1,
+      "seller_id": "newegg_sim",
+      "sku": "NE-NVME-1TB",
+      "unit_price_usd": 72.0
+    },
+    {
+      "basis": "list",
+      "category": "psu",
+      "item_id": "psu",
+      "line_total_usd": 69.0,
+      "name": "650W 80+ Bronze PSU",
+      "qty": 1,
+      "seller_id": "newegg_sim",
+      "sku": "NE-PSU-650",
+      "unit_price_usd": 69.0
+    },
+    {
+      "basis": "list",
+      "category": "case",
+      "item_id": "case",
+      "line_total_usd": 79.0,
+      "name": "mATX airflow case",
+      "qty": 1,
+      "seller_id": "newegg_sim",
+      "sku": "NE-CASE-MATX",
+      "unit_price_usd": 79.0
+    }
+  ],
+  "list_price_best_total_usd": 1012.0,
+  "naive_baseline_usd": 1068.0,
+  "optimal_allocation": [
+    {
+      "basis": "list",
+      "category": "cpu",
+      "item_id": "cpu",
+      "line_total_usd": 219.0,
+      "name": "AMD Ryzen 5 7600",
+      "qty": 1,
+      "seller_id": "microcenter_sim",
+      "sku": "MC-R5-7600",
+      "unit_price_usd": 219.0
+    },
+    {
+      "basis": "list",
+      "category": "gpu",
+      "item_id": "gpu",
+      "line_total_usd": 379.0,
+      "name": "RTX 4060 Ti 8GB",
+      "qty": 1,
+      "seller_id": "newegg_sim",
+      "sku": "NE-4060TI",
+      "unit_price_usd": 379.0
+    },
+    {
+      "basis": "list",
+      "category": "motherboard",
+      "item_id": "motherboard",
+      "line_total_usd": 129.0,
+      "name": "B650M motherboard",
+      "qty": 1,
+      "seller_id": "newegg_sim",
+      "sku": "NE-B650M",
+      "unit_price_usd": 129.0
+    },
+    {
+      "basis": "list",
+      "category": "ram",
+      "item_id": "ram",
+      "line_total_usd": 65.0,
+      "name": "16GB DDR5-5200",
+      "qty": 1,
+      "seller_id": "newegg_sim",
+      "sku": "NE-DDR5-16",
+      "unit_price_usd": 65.0
+    },
+    {
+      "basis": "list",
+      "category": "storage",
+      "item_id": "storage",
+      "line_total_usd": 72.0,
+      "name": "1TB NVMe Gen4 SSD",
+      "qty": 1,
+      "seller_id": "newegg_sim",
+      "sku": "NE-NVME-1TB",
+      "unit_price_usd": 72.0
+    },
+    {
+      "basis": "list",
+      "category": "psu",
+      "item_id": "psu",
+      "line_total_usd": 69.0,
+      "name": "650W 80+ Bronze PSU",
+      "qty": 1,
+      "seller_id": "newegg_sim",
+      "sku": "NE-PSU-650",
+      "unit_price_usd": 69.0
+    },
+    {
+      "basis": "list",
+      "category": "case",
+      "item_id": "case",
+      "line_total_usd": 79.0,
+      "name": "mATX airflow case",
+      "qty": 1,
+      "seller_id": "newegg_sim",
+      "sku": "NE-CASE-MATX",
+      "unit_price_usd": 79.0
+    }
+  ],
+  "optimal_strategy": "parts",
+  "optimal_total_usd": 1012.0,
+  "price_basis": "list",
+  "task_id": "pc-001",
+  "world_id": "pc_build_v1"
+}

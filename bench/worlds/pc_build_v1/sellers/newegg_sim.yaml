@@ -1,0 +1,16 @@
+{
+  "id": "newegg_sim",
+  "name": "Newegg Sim",
+  "personality": "deal_hunter",
+  "channels": {"website": true, "email": true, "quote_form": false},
+  "latency_seconds": 0,
+  "inventory": [
+    {"sku": "NE-R5-7600", "item_id": "cpu", "category": "cpu", "kind": "component", "name": "AMD Ryzen 5 7600", "list_price": 229.00, "reservation_price": 210.00, "stock": 10, "specs": {"cpu_passmark": 27000}, "volume_discounts": []},
+    {"sku": "NE-4060TI", "item_id": "gpu", "category": "gpu", "kind": "component", "name": "RTX 4060 Ti 8GB", "list_price": 379.00, "reservation_price": 360.00, "stock": 8, "specs": {"gpu_timespy": 13500}, "volume_discounts": []},
+    {"sku": "NE-B650M", "item_id": "motherboard", "category": "motherboard", "kind": "component", "name": "B650M motherboard", "list_price": 129.00, "reservation_price": 120.00, "stock": 6, "specs": {"socket": "am5"}, "volume_discounts": []},
+    {"sku": "NE-DDR5-16", "item_id": "ram", "category": "ram", "kind": "component", "name": "16GB DDR5-5200", "list_price": 65.00, "reservation_price": 58.00, "stock": 30, "specs": {"ram_gb": 16}, "volume_discounts": []},
+    {"sku": "NE-NVME-1TB", "item_id": "storage", "category": "storage", "kind": "component", "name": "1TB NVMe Gen4 SSD", "list_price": 72.00, "reservation_price": 66.00, "stock": 15, "specs": {"storage_gb": 1000, "nvme": 1}, "volume_discounts": []},
+    {"sku": "NE-PSU-650", "item_id": "psu", "category": "psu", "kind": "component", "name": "650W 80+ Bronze PSU", "list_price": 69.00, "reservation_price": 62.00, "stock": 8, "specs": {"psu_watts": 650}, "volume_discounts": []},
+    {"sku": "NE-CASE-MATX", "item_id": "case", "category": "case", "kind": "component", "name": "mATX airflow case", "list_price": 79.00, "reservation_price": 72.00, "stock": 10, "specs": {"case_ok": 1}, "volume_discounts": []}
+  ]
+}

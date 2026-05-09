@@ -1,0 +1,74 @@
+{
+  "_generated_by": "bench/harness/compile_ground_truth.py",
+  "list_price_best_allocation": [
+    {
+      "basis": "list",
+      "item_id": "wine_caymus",
+      "line_total_usd": 1060.2,
+      "name": "Caymus Cabernet Sauvignon Napa Valley 2021",
+      "qty": 12,
+      "seller_id": "vintage_cellars",
+      "sku": "VC-CAYMUS-2021",
+      "unit_price_usd": 88.35
+    },
+    {
+      "basis": "list",
+      "item_id": "wine_kistler",
+      "line_total_usd": 384.0,
+      "name": "Kistler Chardonnay Les Noisetiers 2022",
+      "qty": 6,
+      "seller_id": "napa_direct",
+      "sku": "ND-KISTLER-2022",
+      "unit_price_usd": 64.0
+    },
+    {
+      "basis": "list",
+      "item_id": "wine_veuve",
+      "line_total_usd": 1255.68,
+      "name": "Veuve Clicquot Yellow Label Brut NV",
+      "qty": 24,
+      "seller_id": "bay_wine_co",
+      "sku": "BWC-VEUVE-NV",
+      "unit_price_usd": 52.32
+    }
+  ],
+  "list_price_best_total_usd": 2699.88,
+  "naive_baseline_usd": 2776.68,
+  "optimal_allocation": [
+    {
+      "basis": "list",
+      "item_id": "wine_caymus",
+      "line_total_usd": 1060.2,
+      "name": "Caymus Cabernet Sauvignon Napa Valley 2021",
+      "qty": 12,
+      "seller_id": "vintage_cellars",
+      "sku": "VC-CAYMUS-2021",
+      "unit_price_usd": 88.35
+    },
+    {
+      "basis": "list",
+      "item_id": "wine_kistler",
+      "line_total_usd": 384.0,
+      "name": "Kistler Chardonnay Les Noisetiers 2022",
+      "qty": 6,
+      "seller_id": "napa_direct",
+      "sku": "ND-KISTLER-2022",
+      "unit_price_usd": 64.0
+    },
+    {
+      "basis": "list",
+      "item_id": "wine_veuve",
+      "line_total_usd": 1255.68,
+      "name": "Veuve Clicquot Yellow Label Brut NV",
+      "qty": 24,
+      "seller_id": "bay_wine_co",
+      "sku": "BWC-VEUVE-NV",
+      "unit_price_usd": 52.32
+    }
+  ],
+  "optimal_strategy": "fixed_list",
+  "optimal_total_usd": 2699.88,
+  "price_basis": "list",
+  "task_id": "wine-001",
+  "world_id": "wine_restock_v1"
+}

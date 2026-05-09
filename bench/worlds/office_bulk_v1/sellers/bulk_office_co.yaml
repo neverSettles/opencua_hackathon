@@ -1,0 +1,12 @@
+{
+  "id": "bulk_office_co",
+  "name": "Bulk Office Co",
+  "personality": "flexible_bulk",
+  "channels": {"website": true, "email": true, "quote_form": true},
+  "latency_seconds": 0,
+  "inventory": [
+    {"sku": "BOC-PAPER", "item_id": "copy_paper", "name": "8.5x11 multipurpose copy paper, 20lb, white", "list_price": 3.85, "reservation_price": 3.10, "stock": 900, "volume_discounts": [{"min_qty": 500, "discount_pct": 0.08}]},
+    {"sku": "BOC-PENS", "item_id": "black_pens", "name": "Black ballpoint pens, medium tip", "list_price": 0.22, "reservation_price": 0.16, "stock": 3000, "volume_discounts": [{"min_qty": 1000, "discount_pct": 0.10}]},
+    {"sku": "BOC-TONER", "item_id": "hp_414a_black", "name": "HP 414A black toner cartridge", "list_price": 138.00, "reservation_price": 126.00, "stock": 20, "volume_discounts": []}
+  ]
+}

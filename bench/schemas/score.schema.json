@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["world_id", "task_id", "gates", "scored_criteria", "final_score", "metrics"],
+  "properties": {
+    "world_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "final_score": {"type": "number"},
+    "metrics": {"type": "object"}
+  }
+}

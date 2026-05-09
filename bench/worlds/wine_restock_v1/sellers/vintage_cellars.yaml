@@ -1,0 +1,12 @@
+{
+  "id": "vintage_cellars",
+  "name": "Vintage Cellars",
+  "personality": "professional_firm",
+  "channels": {"website": true, "email": false, "quote_form": false},
+  "latency_seconds": 0,
+  "inventory": [
+    {"sku": "VC-CAYMUS-2021", "item_id": "wine_caymus", "name": "Caymus Cabernet Sauvignon Napa Valley 2021", "list_price": 93.00, "reservation_price": 88.00, "stock": 24, "volume_discounts": [{"min_qty": 12, "discount_pct": 0.05}]},
+    {"sku": "VC-KISTLER-2022", "item_id": "wine_kistler", "name": "Kistler Chardonnay Les Noisetiers 2022", "list_price": 68.00, "reservation_price": 62.00, "stock": 10, "volume_discounts": []},
+    {"sku": "VC-VEUVE-NV", "item_id": "wine_veuve", "name": "Veuve Clicquot Yellow Label Brut NV", "list_price": 58.00, "reservation_price": 51.00, "stock": 48, "volume_discounts": [{"min_qty": 24, "discount_pct": 0.06}]}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "custom_pc_builders",
+  "name": "Custom PC Builders",
+  "personality": "prebuilt_upseller",
+  "channels": {"website": true, "email": true, "quote_form": true},
+  "latency_seconds": 0,
+  "inventory": [
+    {"sku": "CPB-R5-4060TI-PRE", "item_id": "prebuilt", "category": "prebuilt", "kind": "prebuilt", "name": "Prebuilt Ryzen 5 7600 / RTX 4060 Ti Gaming PC", "list_price": 1349.00, "reservation_price": 1275.00, "stock": 4, "specs": {"cpu_passmark": 27000, "gpu_timespy": 13500, "ram_gb": 16, "storage_gb": 1000, "nvme": 1, "psu_watts": 650, "case_ok": 1}, "volume_discounts": []},
+    {"sku": "CPB-R7-4070-PRE", "item_id": "prebuilt", "category": "prebuilt", "kind": "prebuilt", "name": "Prebuilt Ryzen 7 / RTX 4070 Gaming PC", "list_price": 1699.00, "reservation_price": 1590.00, "stock": 2, "specs": {"cpu_passmark": 33000, "gpu_timespy": 17800, "ram_gb": 32, "storage_gb": 2000, "nvme": 1, "psu_watts": 750, "case_ok": 1}, "volume_discounts": []}
+  ]
+}

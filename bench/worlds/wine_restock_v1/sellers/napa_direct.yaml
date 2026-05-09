@@ -1,0 +1,12 @@
+{
+  "id": "napa_direct",
+  "name": "Napa Direct",
+  "personality": "premium_no_discount",
+  "channels": {"website": true, "email": false, "quote_form": false},
+  "latency_seconds": 0,
+  "inventory": [
+    {"sku": "ND-CAYMUS-2021", "item_id": "wine_caymus", "name": "Caymus Cabernet Sauvignon Napa Valley 2021", "list_price": 96.00, "reservation_price": 90.00, "stock": 36, "volume_discounts": [{"min_qty": 12, "discount_pct": 0.04}]},
+    {"sku": "ND-KISTLER-2022", "item_id": "wine_kistler", "name": "Kistler Chardonnay Les Noisetiers 2022", "list_price": 64.00, "reservation_price": 59.00, "stock": 12, "volume_discounts": []},
+    {"sku": "ND-VEUVE-NV", "item_id": "wine_veuve", "name": "Veuve Clicquot Yellow Label Brut NV", "list_price": 57.00, "reservation_price": 52.00, "stock": 30, "volume_discounts": []}
+  ]
+}

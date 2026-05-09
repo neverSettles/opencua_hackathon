@@ -1,0 +1,26 @@
+{
+  "id": "pc-001",
+  "world": "pc_build_v1",
+  "split": "demo",
+  "task_type": "pc_build",
+  "title": "Gaming PC under budget",
+  "config": {
+    "ground_truth_price_basis": "list",
+    "allowed_sellers": ["microcenter_sim", "newegg_sim", "custom_pc_builders"],
+    "constraints": {"ship_to": "94103", "max_sellers": 5, "budget_usd": 1500},
+    "required_components": [
+      {"category": "cpu", "min_specs": {"cpu_passmark": 25000}},
+      {"category": "gpu", "min_specs": {"gpu_timespy": 11000}},
+      {"category": "motherboard", "equals": {"socket": "am5"}},
+      {"category": "ram", "min_specs": {"ram_gb": 16}},
+      {"category": "storage", "min_specs": {"storage_gb": 1000, "nvme": 1}},
+      {"category": "psu", "min_specs": {"psu_watts": 650}},
+      {"category": "case", "min_specs": {"case_ok": 1}}
+    ],
+    "prebuilt_requirements": {
+      "min_specs": {"cpu_passmark": 25000, "gpu_timespy": 11000, "ram_gb": 16, "storage_gb": 1000, "nvme": 1, "psu_watts": 650, "case_ok": 1}
+    }
+  },
+  "expected_response": {"type": "pc_purchase_plan_v1"},
+  "limits": {"max_wall_clock_seconds": 600, "max_actions": 220, "max_inference_usd": 3.0}
+}

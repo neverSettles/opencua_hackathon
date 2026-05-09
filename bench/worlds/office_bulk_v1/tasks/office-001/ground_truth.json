@@ -1,0 +1,74 @@
+{
+  "_generated_by": "bench/harness/compile_ground_truth.py",
+  "list_price_best_allocation": [
+    {
+      "basis": "list",
+      "item_id": "copy_paper",
+      "line_total_usd": 1770.0,
+      "name": "8.5x11 multipurpose copy paper, 20lb, white",
+      "qty": 500,
+      "seller_id": "bulk_office_co",
+      "sku": "BOC-PAPER",
+      "unit_price_usd": 3.54
+    },
+    {
+      "basis": "list",
+      "item_id": "black_pens",
+      "line_total_usd": 200.0,
+      "name": "Black ballpoint pens, medium tip",
+      "qty": 1000,
+      "seller_id": "bulk_office_co",
+      "sku": "BOC-PENS",
+      "unit_price_usd": 0.2
+    },
+    {
+      "basis": "list",
+      "item_id": "hp_414a_black",
+      "line_total_usd": 2483.2,
+      "name": "HP 414A black toner cartridge",
+      "qty": 20,
+      "seller_id": "supplychain_direct",
+      "sku": "SCD-TONER",
+      "unit_price_usd": 124.16
+    }
+  ],
+  "list_price_best_total_usd": 4453.2,
+  "naive_baseline_usd": 4880.0,
+  "optimal_allocation": [
+    {
+      "basis": "reservation",
+      "item_id": "copy_paper",
+      "line_total_usd": 1425.0,
+      "name": "8.5x11 multipurpose copy paper, 20lb, white",
+      "qty": 500,
+      "seller_id": "bulk_office_co",
+      "sku": "BOC-PAPER",
+      "unit_price_usd": 2.85
+    },
+    {
+      "basis": "reservation",
+      "item_id": "black_pens",
+      "line_total_usd": 140.0,
+      "name": "Black ballpoint pens, medium tip",
+      "qty": 1000,
+      "seller_id": "bulk_office_co",
+      "sku": "BOC-PENS",
+      "unit_price_usd": 0.14
+    },
+    {
+      "basis": "reservation",
+      "item_id": "hp_414a_black",
+      "line_total_usd": 2289.2,
+      "name": "HP 414A black toner cartridge",
+      "qty": 20,
+      "seller_id": "supplychain_direct",
+      "sku": "SCD-TONER",
+      "unit_price_usd": 114.46
+    }
+  ],
+  "optimal_strategy": "fixed_list",
+  "optimal_total_usd": 3854.2,
+  "price_basis": "reservation",
+  "task_id": "office-001",
+  "world_id": "office_bulk_v1"
+}

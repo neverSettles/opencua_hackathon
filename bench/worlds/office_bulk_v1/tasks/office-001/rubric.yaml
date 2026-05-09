@@ -1,0 +1,9 @@
+{
+  "gates": ["all_required_items_satisfied", "allowed_sellers_only", "within_budget"],
+  "criteria": [
+    {"id": "surplus_capture_at_least_50pct", "weight": 0.35},
+    {"id": "cost_within_15pct_of_optimal", "weight": 0.30},
+    {"id": "sent_at_least_one_rfq", "weight": 0.20},
+    {"id": "submitted_final_response", "weight": 0.15}
+  ]
+}

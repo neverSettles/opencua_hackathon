@@ -1,0 +1,16 @@
+{
+  "id": "microcenter_sim",
+  "name": "MicroCenter Sim",
+  "personality": "component_retailer",
+  "channels": {"website": true, "email": true, "quote_form": false},
+  "latency_seconds": 0,
+  "inventory": [
+    {"sku": "MC-R5-7600", "item_id": "cpu", "category": "cpu", "kind": "component", "name": "AMD Ryzen 5 7600", "list_price": 219.00, "reservation_price": 205.00, "stock": 10, "specs": {"cpu_passmark": 27000}, "volume_discounts": []},
+    {"sku": "MC-4060TI", "item_id": "gpu", "category": "gpu", "kind": "component", "name": "RTX 4060 Ti 8GB", "list_price": 399.00, "reservation_price": 380.00, "stock": 6, "specs": {"gpu_timespy": 13500}, "volume_discounts": []},
+    {"sku": "MC-B650M", "item_id": "motherboard", "category": "motherboard", "kind": "component", "name": "B650M motherboard", "list_price": 145.00, "reservation_price": 130.00, "stock": 8, "specs": {"socket": "am5"}, "volume_discounts": []},
+    {"sku": "MC-DDR5-16", "item_id": "ram", "category": "ram", "kind": "component", "name": "16GB DDR5-5200", "list_price": 69.00, "reservation_price": 61.00, "stock": 20, "specs": {"ram_gb": 16}, "volume_discounts": []},
+    {"sku": "MC-NVME-1TB", "item_id": "storage", "category": "storage", "kind": "component", "name": "1TB NVMe Gen4 SSD", "list_price": 78.00, "reservation_price": 70.00, "stock": 20, "specs": {"storage_gb": 1000, "nvme": 1}, "volume_discounts": []},
+    {"sku": "MC-PSU-650", "item_id": "psu", "category": "psu", "kind": "component", "name": "650W 80+ Bronze PSU", "list_price": 76.00, "reservation_price": 68.00, "stock": 12, "specs": {"psu_watts": 650}, "volume_discounts": []},
+    {"sku": "MC-CASE-MATX", "item_id": "case", "category": "case", "kind": "component", "name": "mATX airflow case", "list_price": 82.00, "reservation_price": 75.00, "stock": 12, "specs": {"case_ok": 1}, "volume_discounts": []}
+  ]
+}

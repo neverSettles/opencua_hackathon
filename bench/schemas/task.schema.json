@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["id", "world", "task_type", "config", "expected_response", "limits"],
+  "properties": {
+    "id": {"type": "string"},
+    "world": {"type": "string"},
+    "task_type": {"enum": ["fixed_list", "negotiation_fixed_list", "pc_build"]},
+    "config": {"type": "object"},
+    "expected_response": {"type": "object"},
+    "limits": {"type": "object"}
+  }
+}

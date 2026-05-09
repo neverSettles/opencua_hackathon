@@ -1,0 +1,10 @@
+{
+  "id": "office_bulk_v1",
+  "persona": "office_manager",
+  "version": "0.1",
+  "description": "A company office manager buying quarterly supplies with quote-based bulk discounts.",
+  "default_ship_to": "94103",
+  "sellers": ["office_depot_sim", "bulk_office_co", "supplychain_direct"],
+  "channels": ["website", "email", "quote_form", "cart"],
+  "evaluator": "procurement"
+}

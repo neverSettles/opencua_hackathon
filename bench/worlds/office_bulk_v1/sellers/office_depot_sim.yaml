@@ -1,0 +1,12 @@
+{
+  "id": "office_depot_sim",
+  "name": "Office Depot Sim",
+  "personality": "retail_baseline",
+  "channels": {"website": true, "email": true, "quote_form": true},
+  "latency_seconds": 0,
+  "inventory": [
+    {"sku": "ODS-PAPER", "item_id": "copy_paper", "name": "8.5x11 multipurpose copy paper, 20lb, white", "list_price": 4.10, "reservation_price": 3.65, "stock": 700, "volume_discounts": [{"min_qty": 500, "discount_pct": 0.03}]},
+    {"sku": "ODS-PENS", "item_id": "black_pens", "name": "Black ballpoint pens, medium tip", "list_price": 0.26, "reservation_price": 0.21, "stock": 2000, "volume_discounts": [{"min_qty": 1000, "discount_pct": 0.05}]},
+    {"sku": "ODS-TONER", "item_id": "hp_414a_black", "name": "HP 414A black toner cartridge", "list_price": 132.00, "reservation_price": 124.00, "stock": 30, "volume_discounts": []}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "wine_restock_v1",
+  "persona": "wine_retailer",
+  "version": "0.1",
+  "description": "A San Francisco wine shop restocking common bottles across simulated retailers.",
+  "default_ship_to": "94103",
+  "sellers": ["vintage_cellars", "bay_wine_co", "napa_direct"],
+  "channels": ["website", "cart"],
+  "evaluator": "procurement"
+}

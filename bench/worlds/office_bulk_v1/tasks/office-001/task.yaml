@@ -1,0 +1,19 @@
+{
+  "id": "office-001",
+  "world": "office_bulk_v1",
+  "split": "demo",
+  "task_type": "negotiation_fixed_list",
+  "title": "Quarterly office bulk procurement",
+  "config": {
+    "ground_truth_price_basis": "reservation",
+    "allowed_sellers": ["office_depot_sim", "bulk_office_co", "supplychain_direct"],
+    "items": [
+      {"item_id": "copy_paper", "name": "8.5x11 multipurpose copy paper, 20lb, white", "qty": 500, "substitutable": true},
+      {"item_id": "black_pens", "name": "Black ballpoint pens, medium tip", "qty": 1000, "substitutable": true},
+      {"item_id": "hp_414a_black", "name": "HP 414A black toner cartridge", "qty": 20, "substitutable": false}
+    ],
+    "constraints": {"ship_to": "94103", "max_sellers": 3, "budget_usd": 5000}
+  },
+  "expected_response": {"type": "procurement_plan_v1"},
+  "limits": {"max_wall_clock_seconds": 600, "max_actions": 220, "max_inference_usd": 3.0}
+}

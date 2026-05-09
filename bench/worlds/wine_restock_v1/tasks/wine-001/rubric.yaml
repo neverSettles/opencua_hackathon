@@ -1,0 +1,9 @@
+{
+  "gates": ["all_required_items_satisfied", "allowed_sellers_only", "within_budget"],
+  "criteria": [
+    {"id": "cost_within_5pct_of_optimal", "weight": 0.50},
+    {"id": "cost_within_15pct_of_optimal", "weight": 0.25},
+    {"id": "used_at_most_max_sellers", "weight": 0.15},
+    {"id": "submitted_final_response", "weight": 0.10}
+  ]
+}
