@@ -8,6 +8,38 @@ Built during a hackathon sponsored by [Tzafon (Lightcone)](https://docs.lightcon
 
 ---
 
+## Trajectories (Browse Online)
+
+All trajectories with step-by-step screenshots and actions:
+
+### GPT-5.5 (OpenAI)
+| Task | Trials | Headline | Link |
+|---|---|---|---|
+| **T2** — WebstaurantStore restock | 20 | **0.90** | [trajectories.sh/t/b2ff60bb](https://trajectories.sh/t/b2ff60bb-5f4a-45e8-be14-5bf5ea14dd09) |
+| **T3** — REI hiking boots | 20 | **0.65** | [trajectories.sh/t/73a35321](https://trajectories.sh/t/73a35321-4eac-411b-9639-a85048fbf0d1) |
+| **T4** — Used books basket | 11 | **0.63** | [trajectories.sh/t/fba109a6](https://trajectories.sh/t/fba109a6-4b4c-4a04-acac-49fec8b68a80) |
+
+### Northstar CUA Fast (Tzafon)
+| Task | Trials | Headline | Link |
+|---|---|---|---|
+| **T2** — WebstaurantStore restock | 5 | **0.00** | [trajectories.sh/t/5746d053](https://trajectories.sh/t/5746d053-187b-493e-a5d9-955a7f816ce0) |
+| **T3** — REI hiking boots | 5 | **0.00** | [trajectories.sh/t/796b12fa](https://trajectories.sh/t/796b12fa-8dd8-4238-8c8b-fb36c653805c) |
+| **T4** — Used books basket | 5 | **0.00** | [trajectories.sh/t/f567760e](https://trajectories.sh/t/f567760e-a96e-4ad3-8c54-642e1019f0a7) |
+
+Raw trajectory data (JSON) also in this repo: [`outputs/jobs/`](outputs/jobs/)
+
+### Results Summary
+
+| Task | GPT-5.5 | Northstar CUA Fast |
+|---|---|---|
+| T2 — Single-source restock | **0.90** (n=14) | **0.00** (all stall at step 3) |
+| T3 — Constrained product search | **0.65** (n=10, zero variance) | **0.00** (all stall at step 2) |
+| T4 — Multi-source optimization | **0.63** (n=9, range 0.50–0.77) | **0.00** (all stall at step 2) |
+
+GPT-5.5 completes all three task types. Northstar cannot commit to action emission — it narrates *"I need to click the search button"* but never produces a click. See [RESULTS.md](RESULTS.md) for detailed analysis.
+
+---
+
 ## At a glance
 
 | Component | Used for |
