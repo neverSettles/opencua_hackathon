@@ -1,0 +1,42 @@
+{
+  "_status": "unpopulated",
+  "_note": "Live-site task. Populate `items_needed[].ground_truth` with {product_url, product_name, case_pack_size, alternative_acceptable_products[]} once a human has verified canonical product picks on WebstaurantStore. Until then, item_match and pack_extraction sub-scores will be skipped (returned as null) and only quantity_correctness, cart_added, and completeness will contribute to the headline.",
+  "items_needed": [
+    {
+      "item_id": "item_001",
+      "description": "16oz disposable coffee cups, white",
+      "weekly_usage": 2400,
+      "ground_truth": null
+    },
+    {
+      "item_id": "item_002",
+      "description": "9-inch white paper plates, heavy duty",
+      "weekly_usage": 1500,
+      "ground_truth": null
+    },
+    {
+      "item_id": "item_003",
+      "description": "Black nitrile gloves, large, powder-free",
+      "weekly_usage": 800,
+      "ground_truth": null
+    },
+    {
+      "item_id": "item_004",
+      "description": "32oz translucent deli containers with lids",
+      "weekly_usage": 600,
+      "ground_truth": null
+    },
+    {
+      "item_id": "item_005",
+      "description": "13-gallon trash can liners, clear",
+      "weekly_usage": 200,
+      "ground_truth": null
+    },
+    {
+      "item_id": "item_006",
+      "description": "Stainless steel scouring pads, heavy duty",
+      "weekly_usage": 50,
+      "ground_truth": null
+    }
+  ]
+}

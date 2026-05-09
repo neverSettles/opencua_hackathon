@@ -1,0 +1,16 @@
+collections:
+  t4:
+    index_paths: ./collections/t4/archive/
+    archive_paths: ./collections/t4/archive/
+
+proxy:
+  coll: t4
+  recording: false
+  enable_content_rewrite: false
+  use_default_coll: true
+
+debug: true
+
+enable_auto_colls: false
+
+framed_replay: false

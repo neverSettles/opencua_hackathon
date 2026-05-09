@@ -1,0 +1,10 @@
+{
+  "gates": ["valid_json"],
+  "criteria": [
+    {"id": "item_match", "weight": 0.30, "requires_ground_truth": true},
+    {"id": "pack_extraction", "weight": 0.30, "requires_ground_truth": true},
+    {"id": "quantity_correctness", "weight": 0.25, "requires_ground_truth": false},
+    {"id": "cart_added", "weight": 0.10, "requires_ground_truth": false},
+    {"id": "completeness", "weight": 0.05, "requires_ground_truth": false}
+  ]
+}
