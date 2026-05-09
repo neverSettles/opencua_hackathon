@@ -54,6 +54,92 @@ A naive strategy ("buy each book from its individually cheapest seller") will ty
 | Edition | The agent must select copies matching the specified ISBN exactly. Other editions of the same title are not eligible. |
 | Quantity | One copy of each book. |
 
+## Training and holdout set JSON
+
+```json
+{
+  "task_id": "T4_used_books_basket_training",
+  "books": [
+    {
+      "isbn": "9781594631931",
+      "title": "The Kite Runner",
+      "author": "Khaled Hosseini",
+      "edition_note": "Riverhead Books 10th Anniversary paperback (2013)",
+      "role": "cheap_common"
+    },
+    {
+      "isbn": "9781400032716",
+      "title": "The Curious Incident of the Dog in the Night-Time",
+      "author": "Mark Haddon",
+      "edition_note": "Vintage Contemporaries paperback (2004)",
+      "role": "cheap_common"
+    },
+    {
+      "isbn": "9781250062185",
+      "title": "The Sixth Extinction",
+      "author": "Elizabeth Kolbert",
+      "edition_note": "Picador paperback (2015)",
+      "role": "mid_priced_anchor"
+    },
+    {
+      "isbn": "9780394720241",
+      "title": "The Power Broker",
+      "author": "Robert Caro",
+      "edition_note": "Vintage paperback",
+      "role": "expensive"
+    },
+    {
+      "isbn": "9781590176160",
+      "title": "Speedboat",
+      "author": "Renata Adler",
+      "edition_note": "NYRB Classics paperback",
+      "role": "limited_availability"
+    },
+    {
+      "isbn": "9780385333849",
+      "title": "Slaughterhouse-Five",
+      "author": "Kurt Vonnegut",
+      "edition_note": "Dial Press paperback - ISBN-precise match required",
+      "role": "edition_variant"
+    }
+  ],
+  "sellers": ["AbeBooks", "ThriftBooks", "BetterWorldBooks", "Powells"],
+  "constraints": {
+    "minimum_condition": "Good",
+    "ineligible_conditions": ["Acceptable", "Reading Copy", "Poor"],
+    "currency": "USD",
+    "quantity_per_book": 1
+  },
+  "shipping_rules": {
+    "AbeBooks": {
+      "type": "per_seller_listing",
+      "note": "Use the per-listing shipping cost as quoted on each AbeBooks listing page. Different AbeBooks sellers ship separately."
+    },
+    "ThriftBooks": {
+      "type": "tiered",
+      "free_shipping_threshold_usd": 15.00,
+      "flat_rate_below_threshold_usd": 4.99
+    },
+    "BetterWorldBooks": {
+      "type": "always_free",
+      "flat_rate_usd": 0.00
+    },
+    "Powells": {
+      "type": "flat_rate_per_order",
+      "flat_rate_usd": 4.99
+    }
+  },
+  "verification_status": {
+    "isbns_verified": true,
+    "edition_verified": true,
+    "shipping_rules_verified": false,
+    "availability_verified": false,
+    "listings_captured": false,
+    "notes": "ISBNs and editions confirmed by team. Shipping rules are placeholders pending verification against current seller policies. Per-seller availability and per-listing pricing must be captured into a separate listings.json file during archive capture."
+  }
+}
+```
+
 ## Agent prompt
 
 ```
