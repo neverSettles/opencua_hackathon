@@ -8,6 +8,7 @@ from .base import (
 from .northstar import NorthstarAdapter
 from .gemini import GeminiAdapter
 from .openai_cua import OpenAIComputerUseAdapter
+from .anthropic_direct import AnthropicDirectAdapter
 
 __all__ = [
     "Action",
@@ -18,6 +19,7 @@ __all__ = [
     "NorthstarAdapter",
     "GeminiAdapter",
     "OpenAIComputerUseAdapter",
+    "AnthropicDirectAdapter",
     "build_adapter",
 ]
 
@@ -31,4 +33,6 @@ def build_adapter(name: str, **kwargs) -> ModelAdapter:
         return GeminiAdapter(**kwargs)
     if name in ("openai", "gpt", "computer-use"):
         return OpenAIComputerUseAdapter(**kwargs)
+    if name in ("anthropic", "claude", "opus", "sonnet"):
+        return AnthropicDirectAdapter(**kwargs)
     raise ValueError(f"unknown adapter: {name!r}")
