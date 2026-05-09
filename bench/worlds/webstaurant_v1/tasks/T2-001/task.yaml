@@ -1,0 +1,20 @@
+{
+  "id": "T2-001",
+  "world": "webstaurant_v1",
+  "split": "demo",
+  "task_type": "single_source_restock",
+  "title": "Weekly disposables restock at WebstaurantStore",
+  "config": {
+    "allowed_sellers": ["webstaurantstore"],
+    "items_needed": [
+      {"item_id": "item_001", "description": "16oz disposable coffee cups, white", "weekly_usage": 2400},
+      {"item_id": "item_002", "description": "9-inch white paper plates, heavy duty", "weekly_usage": 1500},
+      {"item_id": "item_003", "description": "Black nitrile gloves, large, powder-free", "weekly_usage": 800},
+      {"item_id": "item_004", "description": "32oz translucent deli containers with lids", "weekly_usage": 600},
+      {"item_id": "item_005", "description": "13-gallon trash can liners, clear", "weekly_usage": 200},
+      {"item_id": "item_006", "description": "Stainless steel scouring pads, heavy duty", "weekly_usage": 50}
+    ]
+  },
+  "expected_response": {"type": "cart_assembly_v1"},
+  "limits": {"max_wall_clock_seconds": 1200, "max_actions": 150, "max_inference_usd": 3.0}
+}
