@@ -1,0 +1,546 @@
+{
+  "task_id": "T4_used_books_basket_training",
+  "collected_via": "live_browse",
+  "collection_date": "2026-05-09",
+  "matching_policy": {
+    "rule": "title_author_format",
+    "rationale": "ThriftBooks and Powell's roll up listings at the work level rather than per-ISBN. We accept any trade-paperback edition matching title+author from each seller as eligible. AbeBooks listings are still keyed off ISBN search but matching is not strict at the resulting edition level. New-condition trade paperbacks are also acceptable when no Used Good+ paperback exists."
+  },
+  "shipping_rules": {
+    "AbeBooks": {
+      "type": "per_seller_listing"
+    },
+    "ThriftBooks": {
+      "type": "tiered",
+      "free_shipping_threshold_usd": 15.0,
+      "flat_rate_below_threshold_usd": 4.99
+    },
+    "BetterWorldBooks": {
+      "type": "always_free",
+      "flat_rate_usd": 0.0
+    },
+    "Powells": {
+      "type": "flat_rate_per_order",
+      "flat_rate_usd": 4.99
+    }
+  },
+  "books": [
+    {
+      "isbn": "9781594631931",
+      "title": "The Kite Runner",
+      "author": "Khaled Hosseini",
+      "edition_note": "Riverhead Books 10th Anniversary paperback (2013)",
+      "role": "cheap_common",
+      "listings": {
+        "AbeBooks": [
+          {
+            "seller": "Your Online Bookstore",
+            "condition": "Good",
+            "price": 4.01,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Kite-Runner-Khaled-Hosseini-Riverhead-Books/31917929613/bd"
+          },
+          {
+            "seller": "Orion Tech",
+            "condition": "Good",
+            "price": 4.01,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Kite-Runner-Khaled-Hosseini-Riverhead-Books/31403740626/bd"
+          },
+          {
+            "seller": "Gulf Coast Books",
+            "condition": "Good",
+            "price": 4.01,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Kite-Runner-Khaled-Hosseini-Riverhead-Books/31264582077/bd"
+          },
+          {
+            "seller": "World of Books",
+            "condition": "Very Good",
+            "price": 4.02,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Kite-Runner-Khaled-Hosseini-Riverhead-Books/32442484273/bd"
+          },
+          {
+            "seller": "World of Books",
+            "condition": "Good",
+            "price": 4.02,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Kite-Runner-Khaled-Hosseini-Riverhead-Books/32442306131/bd"
+          }
+        ],
+        "ThriftBooks": [
+          {
+            "condition": "Good",
+            "price": 4.19,
+            "listing_url": "https://www.thriftbooks.com/w/the-kite-runner-by-khaled-hosseini/246792/"
+          },
+          {
+            "condition": "Very Good",
+            "price": 4.79,
+            "listing_url": "https://www.thriftbooks.com/w/the-kite-runner-by-khaled-hosseini/246792/"
+          },
+          {
+            "condition": "Like New",
+            "price": 4.99,
+            "listing_url": "https://www.thriftbooks.com/w/the-kite-runner-by-khaled-hosseini/246792/"
+          },
+          {
+            "condition": "New",
+            "price": 15.84,
+            "listing_url": "https://www.thriftbooks.com/w/the-kite-runner-by-khaled-hosseini/246792/"
+          }
+        ],
+        "BetterWorldBooks": [
+          {
+            "condition": "Used Very Good",
+            "price": 5.73,
+            "listing_url": "https://www.betterworldbooks.com/search/results?q=The+Kite+Runner+Hosseini"
+          }
+        ],
+        "Powells": [
+          {
+            "condition": "Used Good",
+            "price": 11.95,
+            "format": "Trade Paperback",
+            "listing_url": "https://www.powells.com/books/search?query=9781594631931&page=1"
+          }
+        ]
+      }
+    },
+    {
+      "isbn": "9781400032716",
+      "title": "The Curious Incident of the Dog in the Night-Time",
+      "author": "Mark Haddon",
+      "edition_note": "Vintage Contemporaries paperback (2004)",
+      "role": "cheap_common",
+      "listings": {
+        "AbeBooks": [
+          {
+            "seller": "World of Books",
+            "condition": "Very Good",
+            "price": 3.78,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Curious-Incident-Haddon-Mark-Vintage-Contemporaries/32406320588/bd"
+          },
+          {
+            "seller": "Gulf Coast Books",
+            "condition": "Good",
+            "price": 3.78,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Curious-Incident-Dog-Night-Time-Haddon-Mark/32274944152/bd"
+          },
+          {
+            "seller": "Your Online Bookstore",
+            "condition": "Good",
+            "price": 3.78,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Curious-Incident-Dog-Night-Time-Haddon-Mark/31457797129/bd"
+          },
+          {
+            "seller": "World of Books",
+            "condition": "Very Good",
+            "price": 3.85,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Curious-Incident-Dog-Night-Time-Haddon-Mark/32371932522/bd"
+          },
+          {
+            "seller": "Aspen Book Co.",
+            "condition": "Good",
+            "price": 3.99,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Curious-Incident-Dog-Night-Time-Haddon-Mark/32275640853/bd"
+          }
+        ],
+        "ThriftBooks": [
+          {
+            "condition": "Good",
+            "price": 4.49,
+            "listing_url": "https://www.thriftbooks.com/w/the-curious-incident-of-the-dog-in-the-night-time_mark-haddon/249114/"
+          },
+          {
+            "condition": "Very Good",
+            "price": 5.09,
+            "listing_url": "https://www.thriftbooks.com/w/the-curious-incident-of-the-dog-in-the-night-time_mark-haddon/249114/"
+          },
+          {
+            "condition": "New",
+            "price": 19.65,
+            "listing_url": "https://www.thriftbooks.com/w/the-curious-incident-of-the-dog-in-the-night-time_mark-haddon/249114/"
+          }
+        ],
+        "BetterWorldBooks": [
+          {
+            "condition": "Used Very Good",
+            "price": 5.73,
+            "listing_url": "https://www.betterworldbooks.com/search/results?q=The+Curious+Incident+of+the+Dog+Mark+Haddon"
+          }
+        ],
+        "Powells": [
+          {
+            "condition": "Used Good",
+            "price": 10.95,
+            "format": "Trade Paperback",
+            "listing_url": "https://www.powells.com/books/search?query=9781400032716&page=1"
+          }
+        ]
+      }
+    },
+    {
+      "isbn": "9781250062185",
+      "title": "The Sixth Extinction",
+      "author": "Elizabeth Kolbert",
+      "edition_note": "Picador paperback (2015)",
+      "role": "mid_priced_anchor",
+      "listings": {
+        "AbeBooks": [
+          {
+            "seller": "World of Books",
+            "condition": "Good",
+            "price": 3.79,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Sixth-Extinction-Unnatural-Kolbert-Elizabeth-Picador/32435493715/bd"
+          },
+          {
+            "seller": "World of Books",
+            "condition": "Good",
+            "price": 4.03,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Sixth-Extinction-Unnatural-Kolbert-Elizabeth-Picador/32435610746/bd"
+          },
+          {
+            "seller": "3Brothers Bookstore",
+            "condition": "Very Good",
+            "price": 4.8,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Sixth-Extinction-Unnatural-History-Kolbert-Elizabeth/32425909026/bd"
+          },
+          {
+            "seller": "Reliant Bookstore",
+            "condition": "Good",
+            "price": 4.9,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Sixth-Extinction-Unnatural-History-Kolbert-Elizabeth/32231134977/bd"
+          },
+          {
+            "seller": "Greenworld Books",
+            "condition": "Very Good",
+            "price": 5.03,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Sixth-Extinction-Unnatural-History-Kolbert-Elizabeth/32419340381/bd"
+          }
+        ],
+        "ThriftBooks": [
+          {
+            "condition": "Good",
+            "price": 4.79,
+            "listing_url": "https://www.thriftbooks.com/browse/?b.search=9781250062185"
+          },
+          {
+            "condition": "Very Good",
+            "price": 7.49,
+            "listing_url": "https://www.thriftbooks.com/browse/?b.search=9781250062185"
+          },
+          {
+            "condition": "New",
+            "price": 16.47,
+            "listing_url": "https://www.thriftbooks.com/browse/?b.search=9781250062185"
+          }
+        ],
+        "BetterWorldBooks": [
+          {
+            "condition": "Used Very Good",
+            "price": 5.73,
+            "listing_url": "https://www.betterworldbooks.com/search/results?q=The+Sixth+Extinction+Elizabeth+Kolbert"
+          }
+        ],
+        "Powells": [
+          {
+            "condition": "Used Good",
+            "price": 12.95,
+            "format": "Trade Paperback",
+            "listing_url": "https://www.powells.com/books/search?query=9781250062185&page=1"
+          }
+        ]
+      }
+    },
+    {
+      "isbn": "9780394720241",
+      "title": "The Power Broker",
+      "author": "Robert Caro",
+      "edition_note": "Vintage paperback (1975)",
+      "role": "expensive",
+      "listings": {
+        "AbeBooks": [
+          {
+            "seller": "HPB-Ruby",
+            "condition": "Very Good",
+            "price": 12.99,
+            "shipping": 3.75,
+            "listing_url": "https://www.abebooks.com/Power-Broker-Robert-Moses-Fall-New/32441197109/bd"
+          },
+          {
+            "seller": "Inquiring Minds",
+            "condition": "Very Good",
+            "price": 12.98,
+            "shipping": 5.99,
+            "listing_url": "https://www.abebooks.com/Power-Broker-Robert-Moses-Fall-New/32441443570/bd"
+          },
+          {
+            "seller": "EdmondDantes Bookseller",
+            "condition": "Good",
+            "price": 13.48,
+            "shipping": 5.99,
+            "listing_url": "https://www.abebooks.com/Power-Broker-Robert-Moses-Fall-New/32396964759/bd"
+          },
+          {
+            "seller": "HPB Inc.",
+            "condition": "Very Good",
+            "price": 13.49,
+            "shipping": 3.75,
+            "listing_url": "https://www.abebooks.com/Power-Broker-Robert-Moses-Fall-New/32434778570/bd"
+          },
+          {
+            "seller": "True Oak Books",
+            "condition": "Good",
+            "price": 16.95,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Power-Broker-Robert-Moses-Fall-New/32427525910/bd"
+          }
+        ],
+        "ThriftBooks": [
+          {
+            "condition": "Good",
+            "price": 17.39,
+            "listing_url": "https://www.thriftbooks.com/browse/?b.search=9780394720241"
+          },
+          {
+            "condition": "New",
+            "price": 22.61,
+            "listing_url": "https://www.thriftbooks.com/browse/?b.search=9780394720241"
+          }
+        ],
+        "BetterWorldBooks": [],
+        "Powells": [
+          {
+            "condition": "New",
+            "price": 27.0,
+            "format": "Trade Paperback",
+            "listing_url": "https://www.powells.com/books/search?query=9780394720241&page=1"
+          }
+        ]
+      }
+    },
+    {
+      "isbn": "9781590176139",
+      "title": "Speedboat",
+      "author": "Renata Adler",
+      "edition_note": "NYRB Classics paperback (March 2013). Seed had typo 9781590176160 (which is The Green Man by Kingsley Amis); corrected here to 9781590176139.",
+      "role": "limited_availability",
+      "listings": {
+        "AbeBooks": [
+          {
+            "seller": "Bay State Book Company",
+            "condition": "Very Good",
+            "price": 6.69,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Speedboat-NYRB-Classics-Adler-Renata/32442482784/bd"
+          },
+          {
+            "seller": "Lakeside Books",
+            "condition": "New",
+            "price": 10.82,
+            "shipping": 3.99,
+            "listing_url": "https://www.abebooks.com/Speedboat-NYRB-Classics-Adler-Renata/30475497597/bd"
+          },
+          {
+            "seller": "GreatBookPrices",
+            "condition": "New",
+            "price": 12.16,
+            "shipping": 2.64,
+            "listing_url": "https://www.abebooks.com/Speedboat-Adler-Renata-Trebay-Guy-AFT/31030948066/bd"
+          },
+          {
+            "seller": "GreatBookPrices",
+            "condition": "Like New",
+            "price": 13.3,
+            "shipping": 2.64,
+            "listing_url": "https://www.abebooks.com/Speedboat-Adler-Renata-Trebay-Guy-AFT/31030977493/bd"
+          },
+          {
+            "seller": "Isle of Books",
+            "condition": "Good",
+            "price": 14.5,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Speedboat-Renata-Adler-New-York-Review/32428038247/bd"
+          }
+        ],
+        "ThriftBooks": [
+          {
+            "condition": "Very Good",
+            "price": 10.79,
+            "listing_url": "https://www.thriftbooks.com/browse/?b.search=9781590176139"
+          },
+          {
+            "condition": "Good",
+            "price": 13.29,
+            "listing_url": "https://www.thriftbooks.com/browse/?b.search=9781590176139"
+          },
+          {
+            "condition": "New",
+            "price": 13.9,
+            "listing_url": "https://www.thriftbooks.com/browse/?b.search=9781590176139"
+          }
+        ],
+        "BetterWorldBooks": [
+          {
+            "condition": "New",
+            "price": 14.2,
+            "listing_url": "https://www.betterworldbooks.com/search/results?q=Speedboat+Renata+Adler"
+          }
+        ],
+        "Powells": [
+          {
+            "condition": "Used Good",
+            "price": 10.95,
+            "format": "Trade Paperback",
+            "listing_url": "https://www.powells.com/books/search?query=9781590176139&page=1"
+          }
+        ]
+      }
+    },
+    {
+      "isbn": "9780385333849",
+      "title": "Slaughterhouse-Five",
+      "author": "Kurt Vonnegut",
+      "edition_note": "Dial Press Trade Paperback (1999, Modern Library 100 Best Novels series). Loose match per matching_policy.",
+      "role": "edition_variant",
+      "listings": {
+        "AbeBooks": [
+          {
+            "seller": "Dream Books Co.",
+            "condition": "Good",
+            "price": 6.54,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Slaughterhouse-Five-Novel-Modern-Library-100-Best/31751944495/bd"
+          },
+          {
+            "seller": "Hawking Books",
+            "condition": "Very Good",
+            "price": 6.75,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Slaughterhouse-Five-Novel-Modern-Library-100-Best/32124858942/bd"
+          },
+          {
+            "seller": "Dream Books Co.",
+            "condition": "Very Good",
+            "price": 6.84,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Slaughterhouse-Five-Novel-Modern-Library-100-Best/32165541747/bd"
+          },
+          {
+            "seller": "OnTimeBooks",
+            "condition": "Very Good",
+            "price": 7.73,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Slaughterhouse-Five-Novel-Modern-Library-100-Best/32441508960/bd"
+          },
+          {
+            "seller": "BooksRun",
+            "condition": "Very Good",
+            "price": 8.71,
+            "shipping": 0.0,
+            "listing_url": "https://www.abebooks.com/Slaughterhouse-Five-Novel-Modern-Library-100-Best/30972586416/bd"
+          }
+        ],
+        "ThriftBooks": [
+          {
+            "condition": "Good",
+            "price": 9.39,
+            "listing_url": "https://www.thriftbooks.com/w/slaughterhouse-five-or-the-childrens-crusade-a-duty-dance-with-death-by-kurt-vonnegut/248559/"
+          },
+          {
+            "condition": "New",
+            "price": 15.84,
+            "listing_url": "https://www.thriftbooks.com/w/slaughterhouse-five-or-the-childrens-crusade-a-duty-dance-with-death-by-kurt-vonnegut/248559/"
+          },
+          {
+            "condition": "Very Good",
+            "price": 20.49,
+            "listing_url": "https://www.thriftbooks.com/w/slaughterhouse-five-or-the-childrens-crusade-a-duty-dance-with-death-by-kurt-vonnegut/248559/"
+          }
+        ],
+        "BetterWorldBooks": [
+          {
+            "condition": "Used Very Good",
+            "price": 6.4,
+            "listing_url": "https://www.betterworldbooks.com/search/results?q=Slaughterhouse-Five+Kurt+Vonnegut"
+          }
+        ],
+        "Powells": [
+          {
+            "condition": "Used Good",
+            "price": 13.95,
+            "format": "Trade Paperback",
+            "listing_url": "https://www.powells.com/books/search?query=9780385333849&page=1"
+          }
+        ]
+      }
+    }
+  ],
+  "optimal_sourcing": {
+    "9781594631931": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 4.01,
+      "shipping_attributed": 0.0,
+      "listing_url": "https://www.abebooks.com/Kite-Runner-Khaled-Hosseini-Riverhead-Books/31917929613/bd"
+    },
+    "9781400032716": {
+      "seller": "AbeBooks",
+      "condition": "Very Good",
+      "price": 3.78,
+      "shipping_attributed": 0.0,
+      "listing_url": "https://www.abebooks.com/Curious-Incident-Haddon-Mark-Vintage-Contemporaries/32406320588/bd"
+    },
+    "9781250062185": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 3.79,
+      "shipping_attributed": 0.0,
+      "listing_url": "https://www.abebooks.com/Sixth-Extinction-Unnatural-Kolbert-Elizabeth-Picador/32435493715/bd"
+    },
+    "9780394720241": {
+      "seller": "AbeBooks",
+      "condition": "Very Good",
+      "price": 12.99,
+      "shipping_attributed": 3.75,
+      "listing_url": "https://www.abebooks.com/Power-Broker-Robert-Moses-Fall-New/32441197109/bd"
+    },
+    "9781590176139": {
+      "seller": "AbeBooks",
+      "condition": "Very Good",
+      "price": 6.69,
+      "shipping_attributed": 0.0,
+      "listing_url": "https://www.abebooks.com/Speedboat-NYRB-Classics-Adler-Renata/32442482784/bd"
+    },
+    "9780385333849": {
+      "seller": "BetterWorldBooks",
+      "condition": "Used Very Good",
+      "price": 6.4,
+      "shipping_attributed": 0.0,
+      "listing_url": "https://www.betterworldbooks.com/search/results?q=Slaughterhouse-Five+Kurt+Vonnegut"
+    }
+  },
+  "optimal_total_cost": 41.41,
+  "naive_total_cost": 41.41,
+  "naive_minus_optimal_pct": 0.0,
+  "calibration_note": "Naive == optimal == $41.41. Real-world AbeBooks free-shipping prevalence (World of Books, Gulf Coast, Your Online Bookstore, etc.) collapses the consolidation incentive the task was designed for. T4 headline was reweighted to put validity + completeness on top, optimality as sanity gate. See tasks/T4_used_books_basket.md headline section.",
+  "headline_weights": {"validity": 0.40, "completeness": 0.30, "cost_correctness": 0.20, "optimality": 0.10},
+  "collection_status": {
+    "AbeBooks": "complete",
+    "ThriftBooks": "complete",
+    "BetterWorldBooks": "complete (Power Broker has no eligible paperback)",
+    "Powells": "complete"
+  }
+}
