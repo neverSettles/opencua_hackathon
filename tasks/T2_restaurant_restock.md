@@ -259,12 +259,3 @@ The pywb archive must support the agent's full trajectory. Capture:
 - Any intermediate "added to cart" confirmation overlays
 
 Risk areas: cart-state mutation may rely on JavaScript and AJAX calls. Test the cart-add replay specifically before locking the task in. If cart state doesn't replay deterministically, fall back to scoring on the last product page reached rather than the cart state.
-
-## Pre-hackathon prep
-
-1. Pick the six specific WebstaurantStore products. Verify each is currently listed and has a clearly stated case-pack size.
-2. Capture the archive (search pages, detail pages, cart flow) for the six products.
-3. Build the ground-truth JSON file with URLs, names, pack sizes, and computed expected cases.
-4. Identify and capture 1-2 alternative acceptable products per item to make the item-match scoring robust to legitimate ambiguity.
-5. Run the prompt against Claude or GPT-5 with computer use as a sanity check; verify the prompt is unambiguous and the model can return correctly-shaped JSON.
-6. Test the scoring code against a hand-crafted "ideal agent output" matching the ground truth.

@@ -496,14 +496,3 @@ If the gap is smaller than 10%, the optimization isn't doing meaningful work and
 - Adding more limited-availability constraints
 
 The optimum must also be unique up to ties. If two different assignments produce the same total, the eval can't measure which the agent picked. Adjust until there is a clear best.
-
-## Pre-hackathon prep
-
-1. Verify the six ISBNs resolve to the intended editions (use ISBNdb or WorldCat).
-2. Verify each ISBN is currently stocked at the expected sellers in eligible condition.
-3. Verify Speedboat (or your chosen limited-availability candidate) is genuinely unavailable at ThriftBooks and Better World Books.
-4. Capture the archive across all four sellers for all six books (~50-80 pages).
-5. Build the structured listings file from archived data.
-6. Compute optimal and naive costs offline. Verify the gap is meaningful (≥10%).
-7. Verify the optimum is unique.
-8. Test the prompt on Claude or GPT-5 with computer use as a sanity check.

@@ -272,12 +272,3 @@ Before locking the task, verify the qualifying set has the right shape:
 - **Too large** (40+ products): the eval doesn't differentiate models well. Tighten a constraint.
 
 The optimum must be unique. If the top two products have identical rating and review count, modify constraints or pick a different size requirement that breaks the tie.
-
-## Pre-hackathon prep
-
-1. Manually browse REI's men's hiking boots category. Identify a candidate set of boots in the $150-240 range with waterproof variants and mid/high-cut options.
-2. Capture the archive: category page, filter-applied result pages, every plausibly-qualifying product detail page, the cart-add flow on at least one boot.
-3. Extract attribute data for each archived product into a structured file.
-4. Run the constraint filter offline. Verify the qualifying set is 5-15 products with a clear unique optimum.
-5. If the qualifying set doesn't meet the calibration criteria, adjust constraints or capture more products.
-6. Test the prompt on Claude or GPT-5 with computer use to spot ambiguity.
