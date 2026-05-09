@@ -110,8 +110,8 @@ class TrainConfig:
 
 
 def _load_model_and_tokenizer(cfg: TrainConfig):
+    import transformers as tx  # noqa: PLC0415
     from transformers import (  # noqa: PLC0415
-        AutoModelForCausalLM,
         AutoTokenizer,
         AutoProcessor,
         BitsAndBytesConfig,
@@ -141,13 +141,36 @@ def _load_model_and_tokenizer(cfg: TrainConfig):
         print(f"==> AutoProcessor unavailable ({exc}); falling back to AutoTokenizer")
         tokenizer = AutoTokenizer.from_pretrained(cfg.base_model, **common)
 
-    model = AutoModelForCausalLM.from_pretrained(
-        cfg.base_model,
+    # Try loaders in order: vision-aware classes first, then text-only.
+    # Northstar-CUA-Fast is Qwen3-VL based, so AutoModelForImageTextToText is
+    # the right newer-transformers entry point.
+    candidate_loaders = []
+    for name in ("AutoModelForImageTextToText", "AutoModelForVision2Seq", "AutoModelForCausalLM"):
+        cls = getattr(tx, name, None)
+        if cls is not None:
+            candidate_loaders.append((name, cls))
+
+    load_kwargs = dict(
         torch_dtype=torch.bfloat16 if cfg.bf16 else (torch.float16 if cfg.fp16 else "auto"),
         device_map="auto",
         quantization_config=quant_cfg,
         **common,
     )
+
+    last_exc = None
+    model = None
+    for name, cls in candidate_loaders:
+        try:
+            print(f"==> trying {name}.from_pretrained({cfg.base_model})")
+            model = cls.from_pretrained(cfg.base_model, **load_kwargs)
+            print(f"==> loaded via {name}")
+            break
+        except Exception as exc:
+            print(f"    {name} failed: {exc}")
+            last_exc = exc
+    if model is None:
+        raise RuntimeError(f"All model loaders failed; last: {last_exc}")
+
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
