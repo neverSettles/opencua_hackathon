@@ -1,0 +1,92 @@
+{
+  "task_id": "T2_restaurant_restock",
+  "source": "https://www.webstaurantstore.com",
+  "collected_via": "live_browse",
+  "collection_date": "2026-05-09",
+  "items_needed": [
+    {
+      "item_id": "item_001",
+      "description": "16oz disposable coffee cups, white",
+      "weekly_usage": 2400,
+      "ground_truth": {
+        "product_url": "https://www.webstaurantstore.com/choice-16-oz-white-poly-paper-hot-cup-case/50016W.html",
+        "product_name": "Choice 16 oz. White Poly Paper Hot Cup - 1,000/Case",
+        "case_pack_size": 1000,
+        "expected_cases": 3,
+        "alternative_acceptable_products": []
+      }
+    },
+    {
+      "item_id": "item_002",
+      "description": "9-inch white paper plates, heavy duty",
+      "weekly_usage": 1500,
+      "ground_truth": {
+        "product_url": "https://www.webstaurantstore.com/9-white-coated-paper-plate-case/4339COATED.html",
+        "product_name": "Choice 9\" White Coated Paper Plate - 1,000/Case",
+        "case_pack_size": 1000,
+        "expected_cases": 2,
+        "alternative_acceptable_products": [
+          "https://www.webstaurantstore.com/9-white-uncoated-paper-plate-case/433910P.html"
+        ],
+        "notes": "WebstaurantStore's catalog doesn't carry an explicit 'heavy duty' 9\" white paper plate; the coated/heavyweight Choice plate is the closest match. Uncoated 1,200/Case listed as alternate."
+      }
+    },
+    {
+      "item_id": "item_003",
+      "description": "Black nitrile gloves, large, powder-free",
+      "weekly_usage": 800,
+      "ground_truth": {
+        "product_url": "https://www.webstaurantstore.com/glove-nitrile-pfree-lg-1m-3-5mil-blk-10bx-cs/394EN403LCASE.html",
+        "product_name": "Noble Nitrile Black All-Purpose Powder-Free Disposable 4 Mil Thick Gloves - Large - 1000/Case",
+        "case_pack_size": 1000,
+        "expected_cases": 1,
+        "alternative_acceptable_products": [
+          "https://www.webstaurantstore.com/noble-nexgen-3-mil-black-biodegradable-powder-free-nitrile-gloves-large-case/394465LCASE.html",
+          "https://www.webstaurantstore.com/lavex-industrial-nitrile-5-mil-thick-powder-free-textured-gloves-large/3941084LCASE.html",
+          "https://www.webstaurantstore.com/lavex-industrial-nitrile-6-mil-thick-heavy-duty-powder-free-textured-gloves-large/3946102LCASE.html"
+        ]
+      }
+    },
+    {
+      "item_id": "item_004",
+      "description": "32oz translucent deli containers with lids",
+      "weekly_usage": 600,
+      "ground_truth": {
+        "product_url": "https://www.webstaurantstore.com/choice-heavy-duty-32-oz-translucent-plastic-deli-container-and-lid-combo-pack-case/128HD32COMBO.html",
+        "product_name": "Choice Heavy-Duty 32 oz. Translucent Plastic Deli Container and Lid Combo Pack - 240/Case",
+        "case_pack_size": 240,
+        "expected_cases": 3,
+        "alternative_acceptable_products": []
+      }
+    },
+    {
+      "item_id": "item_005",
+      "description": "13-gallon trash can liners, clear",
+      "weekly_usage": 200,
+      "ground_truth": {
+        "product_url": "https://www.webstaurantstore.com/lil-herc-medium-duty-clear-12-16-gallon-low-density-can-liner-trash-bag-1-mil-24-x-33-case/5012433m1c.html",
+        "product_name": "Lavex Li'l Herc 12-16 Gallon 1 Mil 24\" x 33\" Low-Density Medium-Duty Clear Can Liner / Trash Bag - 250/Case",
+        "case_pack_size": 250,
+        "expected_cases": 1,
+        "alternative_acceptable_products": [],
+        "notes": "WebstaurantStore lists 13-gallon liners under the standard 12-16 gallon tall-kitchen range; no 13-gallon-only SKU exists in clear."
+      }
+    },
+    {
+      "item_id": "item_006",
+      "description": "Stainless steel scouring pads, heavy duty",
+      "weekly_usage": 50,
+      "ground_truth": {
+        "product_url": "https://www.webstaurantstore.com/3m-84cc-scotchbrite-175-oz-stainless-steel-scrubber-pack/39984CC.html",
+        "product_name": "3M 84CC Scotch-Brite 50g Stainless Steel Scrubber - 12/Pack",
+        "case_pack_size": 12,
+        "expected_cases": 5,
+        "alternative_acceptable_products": [
+          "https://www.webstaurantstore.com/choice-50g-stainless-steel-scrubber-pack/483SS50SCRUB.html",
+          "https://www.webstaurantstore.com/choice-100g-large-stainless-steel-scrubber-pack/483SS100SCRUB.html"
+        ],
+        "notes": "WebstaurantStore sells stainless steel scouring pads as 'scrubbers' in 12/Pack units, not 'cases'. The pack-of-12 is the standard buy unit; we treat it as the case for arithmetic purposes."
+      }
+    }
+  ]
+}
