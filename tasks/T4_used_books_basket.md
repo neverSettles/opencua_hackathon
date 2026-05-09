@@ -31,7 +31,7 @@ A naive strategy ("buy each book from its individually cheapest seller") will ty
 | 2 | The Curious Incident of the Dog in the Night-Time | Mark Haddon | 9781400032716 | Cheap common (consolidation candidate) |
 | 3 | The Sixth Extinction | Elizabeth Kolbert | 9781250062185 | Mid-priced anchor |
 | 4 | The Power Broker | Robert Caro | 9780394720241 | Expensive (price-driven sourcing) |
-| 5 | Speedboat | Renata Adler | 9781590176160 | Limited availability (routing constraint) |
+| 5 | Speedboat | Renata Adler | 9781590176139 | Limited availability (routing constraint) |
 | 6 | Slaughterhouse-Five | Kurt Vonnegut | 9780385333849 | Edition variant (ISBN-precise match required) |
 
 ## Sellers and shipping rules
@@ -89,7 +89,7 @@ A naive strategy ("buy each book from its individually cheapest seller") will ty
       "role": "expensive"
     },
     {
-      "isbn": "9781590176160",
+      "isbn": "9781590176139",
       "title": "Speedboat",
       "author": "Renata Adler",
       "edition_note": "NYRB Classics paperback",
@@ -236,7 +236,7 @@ BOOKS NEEDED (by ISBN)
 2. 9781400032716 — The Curious Incident of the Dog in the Night-Time by Mark Haddon
 3. 9781250062185 — The Sixth Extinction by Elizabeth Kolbert
 4. 9780394720241 — The Power Broker by Robert Caro
-5. 9781590176160 — Speedboat by Renata Adler
+5. 9781590176139 — Speedboat by Renata Adler
 6. 9780385333849 — Slaughterhouse-Five by Kurt Vonnegut
 
 ELIGIBLE SELLERS
@@ -281,7 +281,7 @@ Return a single JSON object matching this structure:
     "9781400032716": { ... },
     "9781250062185": { ... },
     "9780394720241": { ... },
-    "9781590176160": { ... },
+    "9781590176139": { ... },
     "9780385333849": { ... }
   },
   "total_cost": <number, sum of all prices and shipping in USD>,
@@ -368,13 +368,13 @@ The `optimal_total_cost` and `naive_total_cost` are both computed offline. The n
 ### Headline aggregate
 
 ```
-headline = 0.40 × optimality
-         + 0.30 × validity
-         + 0.20 × completeness
-         + 0.10 × cost_correctness
+headline = 0.40 × validity
+         + 0.30 × completeness
+         + 0.20 × cost_correctness
+         + 0.10 × optimality
 ```
 
-The optimality weight dominates because the optimization is what this task uniquely tests. Validity (no hallucinated listings) and completeness (all six books sourced) act as gates — a model with high optimality but lots of hallucinations is worse than the optimality score alone suggests.
+**Calibration note (2026-05-09):** The originally-intended headline put 0.40 on optimality, premised on a real cost gap between naive per-book sourcing and the consolidation-aware optimum. When ground truth was collected we found the gap was 0% — AbeBooks "World of Books"-class sellers offer $0 shipping on most cheap commons, eliminating the consolidation incentive we designed for. We re-weighted the headline so T4 primarily tests **cross-source navigation and price validity** (which T2 and T3 don't test), with optimality kept as a sanity gate that catches agents producing visibly worse-than-naive routings. If we later re-curate the book list to ones with non-trivial AbeBooks shipping, we can flip the weights back.
 
 If `validity < 1.0` or `completeness < 1.0`, optimality is set to 0. You cannot be "optimal" if your sourcing includes hallucinated entries or skips books.
 
