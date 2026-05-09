@@ -54,7 +54,7 @@ A naive strategy ("buy each book from its individually cheapest seller") will ty
 | Edition | The agent must select copies matching the specified ISBN exactly. Other editions of the same title are not eligible. |
 | Quantity | One copy of each book. |
 
-## Training and holdout set JSON
+## Training set JSON
 
 ```json
 {
@@ -136,6 +136,92 @@ A naive strategy ("buy each book from its individually cheapest seller") will ty
     "availability_verified": false,
     "listings_captured": false,
     "notes": "ISBNs and editions confirmed by team. Shipping rules are placeholders pending verification against current seller policies. Per-seller availability and per-listing pricing must be captured into a separate listings.json file during archive capture."
+  }
+}
+```
+
+## Holdout set JSON
+
+```json
+{
+  "task_id": "T4_used_books_basket_holdout",
+  "books": [
+    {
+      "isbn": "9780156027328",
+      "title": "Life of Pi",
+      "author": "Yann Martel",
+      "edition_note": "Mariner Books paperback",
+      "role": "cheap_common"
+    },
+    {
+      "isbn": "9781594483295",
+      "title": "The Brief Wondrous Life of Oscar Wao",
+      "author": "Junot Díaz",
+      "edition_note": "Riverhead Books paperback",
+      "role": "cheap_common"
+    },
+    {
+      "isbn": "9780143110910",
+      "title": "Behave: The Biology of Humans at Our Best and Worst",
+      "author": "Robert Sapolsky",
+      "edition_note": "Penguin Books paperback",
+      "role": "mid_priced_anchor"
+    },
+    {
+      "isbn": "9780143037750",
+      "title": "Postwar: A History of Europe Since 1945",
+      "author": "Tony Judt",
+      "edition_note": "Penguin Books paperback",
+      "role": "expensive"
+    },
+    {
+      "isbn": "9780312429935",
+      "title": "Train Dreams",
+      "author": "Denis Johnson",
+      "edition_note": "Picador paperback (FSG-published novella reissued by Picador)",
+      "role": "limited_availability"
+    },
+    {
+      "isbn": "9780743273565",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "edition_note": "Scribner trade paperback - ISBN-precise match required (many editions exist)",
+      "role": "edition_variant"
+    }
+  ],
+  "sellers": ["AbeBooks", "ThriftBooks", "BetterWorldBooks", "Powells"],
+  "constraints": {
+    "minimum_condition": "Good",
+    "ineligible_conditions": ["Acceptable", "Reading Copy", "Poor"],
+    "currency": "USD",
+    "quantity_per_book": 1
+  },
+  "shipping_rules": {
+    "AbeBooks": {
+      "type": "per_seller_listing",
+      "note": "Use the per-listing shipping cost as quoted on each AbeBooks listing page. Different AbeBooks sellers ship separately."
+    },
+    "ThriftBooks": {
+      "type": "tiered",
+      "free_shipping_threshold_usd": 15.00,
+      "flat_rate_below_threshold_usd": 4.99
+    },
+    "BetterWorldBooks": {
+      "type": "always_free",
+      "flat_rate_usd": 0.00
+    },
+    "Powells": {
+      "type": "flat_rate_per_order",
+      "flat_rate_usd": 4.99
+    }
+  },
+  "verification_status": {
+    "isbns_verified": false,
+    "edition_verified": false,
+    "shipping_rules_verified": false,
+    "availability_verified": false,
+    "listings_captured": false,
+    "notes": "ISBNs in this held-out set are unverified candidates. Each must be checked against ISBNdb/WorldCat to confirm it resolves to the intended edition before archive capture. Shipping rules match the training set and should be kept consistent."
   }
 }
 ```
