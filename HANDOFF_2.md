@@ -103,9 +103,9 @@ cd harness && bash setup.sh && cd ..    # creates harness/.venv with kernel + tz
 
 ```bash
 cd harness
-uv run python -u launch.py --task T2 --model northstar --runs 1 --max-steps 60
-uv run python -u launch.py --task T3 --model northstar --runs 1 --max-steps 60
-uv run python -u launch.py --task T4 --model northstar --runs 1 --max-steps 80
+uv run python -u run_eval.py --task T2 --model northstar --runs 1
+uv run python -u run_eval.py --task T3 --model northstar --runs 1
+uv run python -u run_eval.py --task T4 --model northstar --runs 1
 ```
 
 For each, confirm:
@@ -117,19 +117,30 @@ T2 smoke is already confirmed working (see "Smoke-test result" above). T3/T4 sho
 
 ### Step 3 — launch the full matrix
 
+The team has shipped purpose-built bash wrappers for the canonical 75-trial matrix:
+
 ```bash
 cd harness
-
-# 5 Northstar trials per task (~15 trials total, ~30-60 min)
-for task in T2 T3 T4; do
-  uv run python -u launch.py --task $task --model northstar --runs 5
-done
-
-# 20 OpenAI trials per task (~60 trials total, ~3-6 hr — consider running in background)
-for task in T2 T3 T4; do
-  uv run python -u launch.py --task $task --model openai --runs 20
-done
+bash launch_15_northstar.sh      # 5 trials × 3 tasks = 15 Northstar runs (~30-60 min)
+bash launch_60_openai.sh         # 20 trials × 3 tasks = 60 OpenAI runs (~3-6 hr)
 ```
+
+Both wrap `run_eval.py`, write to `outputs/jobs/<task>_<model>/trial_NNN/`, and support resumption:
+
+```bash
+bash launch_60_openai.sh T3 11   # restart T3 OpenAI at trial 11 if interrupted
+bash launch_15_northstar.sh T2   # only run T2 Northstar
+```
+
+Equivalent direct invocation if you want fine-grained control:
+
+```bash
+uv run python -u run_eval.py --task T2 --model openai --runs 20
+uv run python -u run_eval.py --task T3 --model northstar --runs 5
+uv run python -u run_eval.py --task T4 --model openai --runs 20 --start-trial 1
+```
+
+> **Note on duplicate runners:** The repo also has `harness/launch.py` (an earlier T2/T3/T4 launcher). It's functionally equivalent to `run_eval.py` but the team has standardized on `run_eval.py` + the bash wrappers because of resume support and per-task `timeout_seconds`. Use `run_eval.py`.
 
 Each invocation produces:
 
@@ -282,8 +293,8 @@ PY
 ```bash
 # (2) 1-trial smoke for each task (T2 already verified; rerun T3/T4 if you've changed code):
 cd harness
-uv run python -u launch.py --task T3 --model northstar --runs 1 --max-steps 60
-uv run python -u launch.py --task T4 --model northstar --runs 1 --max-steps 80
+uv run python -u run_eval.py --task T3 --model northstar --runs 1
+uv run python -u run_eval.py --task T4 --model northstar --runs 1
 ```
 
 If the smoke runs land in `outputs/jobs/<task>_northstar_<ts>/trial_001/` with a `summary.json`, you're cleared to launch the full matrix.
