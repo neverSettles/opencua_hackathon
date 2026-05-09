@@ -145,6 +145,14 @@ The ground truth is built once during archive capture. For each item, the team r
 
 `alternative_acceptable_products` accommodates the reality that more than one product may legitimately match a description. The agent's chosen product passes the item-match check if it is the primary ground-truth product OR any of the listed alternatives.
 
+## Catalog reality notes
+
+When ground truth was collected against the live WebstaurantStore catalog (2026-05-09), three of the six items had no clean canonical SKU. The eval relies on the `alternative_acceptable_products` mechanism rather than tightening the spec, so any reasonable agent-pick passes `item_match`:
+
+- **item_002** (heavy-duty 9" white paper plates): no SKU is labeled "heavy duty". The closest match is `Choice 9" White Coated Paper Plate - 1,000/Case`. The uncoated `Choice 9" White Uncoated Paper Plate - 1,200/Case` is included as an alternative.
+- **item_005** (13-gallon clear can liners): WebstaurantStore catalogs liners by the standard 12–16 gallon tall-kitchen range; there is no 13-gallon-only clear SKU. The Lavex Li'l Herc 12–16 Gallon clear liner is treated as canonical.
+- **item_006** (heavy-duty stainless steel scouring pads): the catalog sells these as `12/Pack` scrubbers, not "cases". The pack is treated as the case for arithmetic purposes (`expected_cases = ceil(weekly_usage / 12)`).
+
 ## Success criteria
 
 Per item, four binary sub-scores:
