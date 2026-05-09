@@ -1,8 +1,0 @@
-{
-  "id": "webstaurantstore",
-  "display_name": "WebstaurantStore",
-  "homepage": "https://www.webstaurantstore.com/",
-  "search_url_template": "https://www.webstaurantstore.com/search/{query}.html",
-  "kind": "live",
-  "notes": "B2B catalog, server-rendered product pages, anti-bot present (handled via Kernel stealth). Case-pack info typically in product title and specifications block."
-}

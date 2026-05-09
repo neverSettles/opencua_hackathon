@@ -1,9 +1,0 @@
-{
-  "id": "webstaurant_v1",
-  "persona": "small_restaurant_owner",
-  "version": "0.1",
-  "description": "Single-source weekly disposables restock on live WebstaurantStore. No archive; agent operates against the live site through Kernel + Northstar.",
-  "sellers": ["webstaurantstore"],
-  "channels": ["website", "cart"],
-  "evaluator": "t2_restaurant_restock"
-}

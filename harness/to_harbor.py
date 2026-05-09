@@ -546,8 +546,7 @@ TASK_SPEC_MD = {
 
 def _task_prompt_for(task_name: str) -> str:
     """Read the agent prompt (fenced block under ## Agent prompt) from the
-    canonical task spec. Falls back to bench/worlds/<world>/tasks/<id>/intent.md
-    if the new path isn't present (older runs)."""
+    canonical task spec at tasks/T<N>_*.md."""
     md_name = TASK_SPEC_MD.get(task_name)
     if md_name:
         md_path = REPO_ROOT / "tasks" / md_name
@@ -558,12 +557,7 @@ def _task_prompt_for(task_name: str) -> str:
                 text,
                 re.DOTALL | re.MULTILINE,
             )
-            if m:
-                return m.group(1).strip()
-            return text
-    legacy = REPO_ROOT / "bench" / "worlds" / "webstaurant_v1" / "tasks" / task_name / "intent.md"
-    if legacy.exists():
-        return legacy.read_text()
+            return m.group(1).strip() if m else text
     return f"(task prompt for {task_name} not found)"
 
 
