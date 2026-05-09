@@ -32,7 +32,9 @@ Five of the six hard constraints are exposed in REI's faceted filter UI (categor
 
 ### Soft preference
 
-Among boots meeting all hard constraints, prefer the one with the highest average customer rating. If multiple boots tie on rating, prefer the one with the most reviews.
+Among boots meeting all hard constraints **with at least 100 customer reviews** (so the rating signal is statistically meaningful), prefer the one with the highest average customer rating. If multiple boots tie on rating, prefer the one with the most reviews.
+
+> **Calibration note (2026-05-09):** The original spec did not require a minimum review count. Live REI data has multiple boots tied at 5.0★ with 1 review each, which would produce a non-unique optimum and break the rating_optimal sub-score. The ≥100-review threshold restores uniqueness; the agent prompt has the same threshold so the rule is fully discoverable.
 
 ## Agent prompt
 
@@ -51,7 +53,7 @@ HARD CONSTRAINTS (all must be met)
 6. Pair weight: Total pair weight strictly under 2.5 lbs (40 oz). Weight is on the product specifications section of each product page; you may need to scroll or expand a section to find it.
 
 SOFT PREFERENCE
-Of all boots meeting the hard constraints, pick the one with the highest average customer rating. If multiple boots are tied on rating, prefer the one with the most reviews.
+Of all boots meeting the hard constraints AND with at least 100 customer reviews, pick the one with the highest average customer rating. If multiple boots are tied on rating, prefer the one with the most reviews. (The 100-review minimum filters out boots whose rating isn't statistically meaningful.)
 
 INSTRUCTIONS
 - Use REI's filtering tools to narrow results before evaluating individual products. Filters available on the men's hiking boots page include waterproof, height, price, and size.
