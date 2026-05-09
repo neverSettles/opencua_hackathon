@@ -1,0 +1,1 @@
+I need to click the "Search" button to search for the book with the ISBN I just entered. The blue "Search" button is visible below the search fields.

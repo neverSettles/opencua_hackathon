@@ -1,0 +1,14 @@
+{
+  "filter_engagement": 0,
+  "category_match": 1,
+  "waterproof_match": 1,
+  "height_match": 1,
+  "price_match": 1,
+  "size_match": 1,
+  "weight_match": 1,
+  "rating_optimal": 0,
+  "cart_state": 1,
+  "hard_constraint_score": 1.0,
+  "all_hard_satisfied": 1,
+  "headline": 0.65
+}

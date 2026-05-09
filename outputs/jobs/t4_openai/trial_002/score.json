@@ -1,0 +1,16 @@
+{
+  "validity": 0.5,
+  "completeness": 1.0,
+  "cost_correctness": 1,
+  "optimality": 0.0,
+  "recomputed_total": 41.41,
+  "claimed_total": 41.41,
+  "optimum": 41.41,
+  "headline": 0.7,
+  "weights_used": {
+    "validity": 0.4,
+    "completeness": 0.3,
+    "cost_correctness": 0.2,
+    "optimality": 0.1
+  }
+}

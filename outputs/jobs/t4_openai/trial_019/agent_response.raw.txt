@@ -1,0 +1,49 @@
+{
+  "sourcing": {
+    "9781594631931": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 4.01,
+      "shipping": 0,
+      "listing_url": "https://www.abebooks.com/Kite-Runner-Khaled-Hosseini-Riverhead-Books/31917929613/bd"
+    },
+    "9781400032716": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 3.78,
+      "shipping": 0,
+      "listing_url": "https://www.abebooks.com/Curious-Incident-Haddon-Mark-Vintage-Contemporaries/32411666494/bd"
+    },
+    "9781250062185": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 3.79,
+      "shipping": 0,
+      "listing_url": "https://www.abebooks.com/Sixth-Extinction-Unnatural-Kolbert-Elizabeth-Picador/32435493715/bd"
+    },
+    "9780394720241": {
+      "seller": "AbeBooks",
+      "condition": "Very Good",
+      "price": 12.99,
+      "shipping": 3.75,
+      "listing_url": "https://www.abebooks.com/Power-Broker-Robert-Moses-Fall-New/32441197109/bd"
+    },
+    "9781590176139": {
+      "seller": "AbeBooks",
+      "condition": "Very Good",
+      "price": 6.69,
+      "shipping": 0,
+      "listing_url": "https://www.abebooks.com/Speedboat-NYRB-Classics-Adler-Renata/32442482784/bd"
+    },
+    "9780385333849": {
+      "seller": "BetterWorldBooks",
+      "condition": "Good",
+      "price": 6.4,
+      "shipping": 0,
+      "listing_url": "https://www.betterworldbooks.com/product/detail/slaughterhouse-five-a-novel-9780385333849"
+    }
+  },
+  "total_cost": 41.41,
+  "currency": "USD",
+  "reasoning": "AbeBooks had the lowest total-cost eligible copies for five titles, with free shipping on four and quoted per-listing shipping on The Power Broker. Better World Books beat the AbeBooks price for Slaughterhouse-Five and ships free. ThriftBooks consolidation did not offset its higher item prices, and Powell's flat shipping plus higher item prices was not competitive."
+}

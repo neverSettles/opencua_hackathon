@@ -1,0 +1,49 @@
+{
+  "sourcing": {
+    "9781594631931": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 4.01,
+      "shipping": 0,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?isbn=9781594631931&sortby=17&n=100121503"
+    },
+    "9781400032716": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 3.78,
+      "shipping": 0,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?kn=9781400032716&sortby=20"
+    },
+    "9781250062185": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 3.79,
+      "shipping": 0,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?kn=9781250062185&sortby=20"
+    },
+    "9780394720241": {
+      "seller": "AbeBooks",
+      "condition": "New",
+      "price": 12.08,
+      "shipping": 3.99,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?kn=9780394720241&sortby=20"
+    },
+    "9781590176139": {
+      "seller": "AbeBooks",
+      "condition": "Very Good",
+      "price": 6.69,
+      "shipping": 0,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?kn=9781590176139&sortby=20"
+    },
+    "9780385333849": {
+      "seller": "BetterWorldBooks",
+      "condition": "Good",
+      "price": 6.4,
+      "shipping": 0,
+      "listing_url": "https://www.betterworldbooks.com/search/results?q=9780385333849"
+    }
+  },
+  "total_cost": 40.74,
+  "currency": "USD",
+  "reasoning": "The lowest total came from taking the free-shipping AbeBooks copies for five titles except Slaughterhouse-Five, where BetterWorldBooks had a slightly cheaper Good copy with free shipping. ThriftBooks consolidation exceeded the free-shipping threshold but still totaled more than the chosen mix; Powell's available exact-ISBN copies did not beat these prices after its flat $4.99 shipping."
+}

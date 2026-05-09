@@ -1,0 +1,14 @@
+{
+  "task": "T2",
+  "model": "northstar",
+  "model_id": null,
+  "n_trials": 1,
+  "n_with_score": 0,
+  "n_with_json": 0,
+  "headline_mean": null,
+  "headlines": [],
+  "started_at": "oyjyaws3ayq741fpn7d1gmo6",
+  "trial_dirs": [
+    "/Users/christophersettles/code/refresh/opencua_hackathon/outputs/jobs/t2_northstar_20260509T224839Z/trial_001"
+  ]
+}

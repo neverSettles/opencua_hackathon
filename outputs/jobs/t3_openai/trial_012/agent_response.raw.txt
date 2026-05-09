@@ -1,0 +1,20 @@
+{
+  "chosen_product": {
+    "product_url": "https://www.rei.com/product/237596/merrell-moab-3-mid-waterproof-hiking-boots-mens",
+    "product_name": "Merrell Moab 3 Mid Waterproof Hiking Boots - Men's"
+  },
+  "extracted_attributes": {
+    "price": 170,
+    "weight_oz": 36,
+    "waterproof": true,
+    "height_category": "mid",
+    "rating": 4.6,
+    "review_count": 2236
+  },
+  "cart_added": {
+    "size": "10.5",
+    "quantity": 1,
+    "in_stock_at_add": true
+  },
+  "reasoning": "Men's hiking boots were evaluated for waterproof construction, mid/high ankle support, price under $250, size 10.5 availability, and pair weight under 40 oz. This boot meets all hard constraints and, among qualifying boots with at least 100 reviews, has a top average rating of 4.6 with a very high review count."
+}

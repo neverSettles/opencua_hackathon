@@ -1,0 +1,14 @@
+{
+  "task": "T2",
+  "adapter": "northstar",
+  "model_id": "tzafon.northstar-cua-fast",
+  "session_id": "oyjyaws3ayq741fpn7d1gmo6",
+  "live_view": "https://proxy.iad-delightful-dickinson.onkernel.com:8443/browser/live/up0EjTewVDlz",
+  "status": "stopped_no_action",
+  "max_steps": 30,
+  "final_message_excerpt": "The search bar is focused and ready for input. I need to type the search query for the first item: \"16oz disposable coffee cups, white\".",
+  "parsed_json_present": false,
+  "page_url_final": "https://www.webstaurantstore.com/",
+  "score": null,
+  "trial_dir": "/Users/christophersettles/code/refresh/opencua_hackathon/outputs/jobs/t2_northstar_20260509T224839Z/trial_001"
+}

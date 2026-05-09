@@ -1,0 +1,29 @@
+{
+  "task": "T3",
+  "adapter": "openai",
+  "model_id": "gpt-5.5",
+  "trial": 12,
+  "session_id": "ig6ltt4i50pyoicu6qj1503i",
+  "live_view": "https://proxy.jfk-focused-mirzakhani.onkernel.com:8443/browser/live/G2Hb4qE55CnM",
+  "status": "json_in_message",
+  "total_steps": 51,
+  "total_actions": 122,
+  "elapsed_seconds": 706.8,
+  "parsed_json_present": true,
+  "headline": 0.65,
+  "score": {
+    "filter_engagement": 0,
+    "category_match": 1,
+    "waterproof_match": 1,
+    "height_match": 1,
+    "price_match": 1,
+    "size_match": 1,
+    "weight_match": 1,
+    "rating_optimal": 0,
+    "cart_state": 1,
+    "hard_constraint_score": 1.0,
+    "all_hard_satisfied": 1,
+    "headline": 0.65
+  },
+  "out_dir": "/Users/christophersettles/code/refresh/opencua_hackathon/outputs/jobs/t3_openai/trial_012"
+}

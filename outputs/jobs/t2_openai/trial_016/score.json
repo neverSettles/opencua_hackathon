@@ -1,0 +1,46 @@
+{
+  "item_match": 0.16666666666666666,
+  "pack_extraction": 0.16666666666666666,
+  "quantity_correctness": 1.0,
+  "cart_added": 1.0,
+  "completeness": 1.0,
+  "headline": 0.49999999999999994,
+  "per_item": [
+    {
+      "item_match": 1,
+      "pack_extraction": 1,
+      "quantity_correctness": 1,
+      "cart_added": 1
+    },
+    {
+      "item_match": 0,
+      "pack_extraction": 0,
+      "quantity_correctness": 1,
+      "cart_added": 1
+    },
+    {
+      "item_match": 0,
+      "pack_extraction": 0,
+      "quantity_correctness": 1,
+      "cart_added": 1
+    },
+    {
+      "item_match": 0,
+      "pack_extraction": 0,
+      "quantity_correctness": 1,
+      "cart_added": 1
+    },
+    {
+      "item_match": 0,
+      "pack_extraction": 0,
+      "quantity_correctness": 1,
+      "cart_added": 1
+    },
+    {
+      "item_match": 0,
+      "pack_extraction": 0,
+      "quantity_correctness": 1,
+      "cart_added": 1
+    }
+  ]
+}

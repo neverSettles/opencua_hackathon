@@ -1,0 +1,1 @@
+I need to click on "Boots" in the Footwear section to see all boot options. This will allow me to then filter for hiking boots that meet all the requirements (waterproof, mid/high cut, under $250, size 10.5 available, weight under 2.5 lbs).

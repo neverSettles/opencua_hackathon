@@ -1,0 +1,20 @@
+{
+  "chosen_product": {
+    "product_url": "https://www.rei.com/product/223775/the-north-face-hedgehog-3-mid-waterproof-hiking-boots-mens",
+    "product_name": "Hedgehog 3 Mid Waterproof Hiking Boots - Men's"
+  },
+  "extracted_attributes": {
+    "price": 160,
+    "weight_oz": 32,
+    "waterproof": true,
+    "height_category": "mid",
+    "rating": 4.7,
+    "review_count": 157
+  },
+  "cart_added": {
+    "size": "10.5",
+    "quantity": 1,
+    "in_stock_at_add": true
+  },
+  "reasoning": "Used REI results narrowed to men's waterproof mid hiking boots with size 10.5 and price under $250, then sorted by customer rating. The highest-rated item shown had only 53 reviews, below the 100-review threshold, so it was excluded. The North Face Hedgehog 3 Mid Waterproof Hiking Boots had 4.7 stars with 157 reviews, met the waterproof and mid-height requirements, was $160, weighed 2 lb per pair, and size 10.5 was available to ship, so it was added to the cart."
+}

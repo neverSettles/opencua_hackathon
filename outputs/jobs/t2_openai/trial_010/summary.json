@@ -1,0 +1,61 @@
+{
+  "task": "T2",
+  "adapter": "openai",
+  "model_id": "gpt-5.5",
+  "trial": 10,
+  "session_id": "ry9g36b150kfwbvn6lp6y2gk",
+  "live_view": "https://proxy.iad-awesome-blackwell.onkernel.com:8443/browser/live/12oeuMUoCzCm",
+  "status": "json_in_message",
+  "total_steps": 69,
+  "total_actions": 198,
+  "elapsed_seconds": 1263.2,
+  "parsed_json_present": true,
+  "headline": 0.9,
+  "score": {
+    "item_match": 0.8333333333333334,
+    "pack_extraction": 0.8333333333333334,
+    "quantity_correctness": 1.0,
+    "cart_added": 1.0,
+    "completeness": 1.0,
+    "headline": 0.9,
+    "per_item": [
+      {
+        "item_match": 1,
+        "pack_extraction": 1,
+        "quantity_correctness": 1,
+        "cart_added": 1
+      },
+      {
+        "item_match": 1,
+        "pack_extraction": 1,
+        "quantity_correctness": 1,
+        "cart_added": 1
+      },
+      {
+        "item_match": 1,
+        "pack_extraction": 1,
+        "quantity_correctness": 1,
+        "cart_added": 1
+      },
+      {
+        "item_match": 1,
+        "pack_extraction": 1,
+        "quantity_correctness": 1,
+        "cart_added": 1
+      },
+      {
+        "item_match": 0,
+        "pack_extraction": 0,
+        "quantity_correctness": 1,
+        "cart_added": 1
+      },
+      {
+        "item_match": 1,
+        "pack_extraction": 1,
+        "quantity_correctness": 1,
+        "cart_added": 1
+      }
+    ]
+  },
+  "out_dir": "/Users/christophersettles/code/refresh/opencua_hackathon/outputs/jobs/t2_openai/trial_010"
+}

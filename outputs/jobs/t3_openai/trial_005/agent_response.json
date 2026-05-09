@@ -1,0 +1,20 @@
+{
+  "chosen_product": {
+    "product_url": "https://www.rei.com/product/237604/merrell-moab-3-mid-gore-tex-hiking-boots-mens",
+    "product_name": "Merrell Moab 3 Mid GORE-TEX Hiking Boots - Men's"
+  },
+  "extracted_attributes": {
+    "price": 190,
+    "weight_oz": 36,
+    "waterproof": true,
+    "height_category": "mid",
+    "rating": 4.6,
+    "review_count": 665
+  },
+  "cart_added": {
+    "size": "10.5",
+    "quantity": 1,
+    "in_stock_at_add": true
+  },
+  "reasoning": "Filtered/search-narrowed to men's waterproof mid hiking boots under $250 with size 10.5 available, then compared customer-rating-sorted candidates with at least 100 reviews and checked pair weight under 40 oz. The Merrell Moab 3 Mid GORE-TEX had the highest qualifying average rating, strong review count, GORE-TEX waterproofing, mid-cut support, sub-$250 price, and size 10.5 was available to add to cart."
+}

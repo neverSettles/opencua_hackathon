@@ -1,0 +1,54 @@
+{
+  "cart": [
+    {
+      "item_id": "item_001",
+      "product_name_chosen": "Choice 16 oz. White Poly Paper Hot Cup - 1,000/Case",
+      "product_url": "https://www.webstaurantstore.com/choice-16-oz-white-poly-paper-hot-cup-case/50016W.html",
+      "extracted_case_pack_size": 1000,
+      "cases_added_to_cart": 3,
+      "calculated_total_units": 3000
+    },
+    {
+      "item_id": "item_002",
+      "product_name_chosen": "Choice 9\" White Coated Paper Plate - 1,000/Case",
+      "product_url": "https://www.webstaurantstore.com/9-white-coated-paper-plate-case/4339COATED.html",
+      "extracted_case_pack_size": 1000,
+      "cases_added_to_cart": 2,
+      "calculated_total_units": 2000
+    },
+    {
+      "item_id": "item_003",
+      "product_name_chosen": "Noble Nitrile Black All-Purpose Powder-Free Disposable 4 Mil Thick Gloves - Large - 1,000/Case",
+      "product_url": "https://www.webstaurantstore.com/glove-nitrile-pfree-lg-1m-3-5mil-blk-10bx-cs/394EN403LCASE.html",
+      "extracted_case_pack_size": 1000,
+      "cases_added_to_cart": 1,
+      "calculated_total_units": 1000
+    },
+    {
+      "item_id": "item_004",
+      "product_name_chosen": "Choice Heavy-Duty 32 oz. Translucent Plastic Deli Container and Lid Combo Pack - 240/Case",
+      "product_url": "https://www.webstaurantstore.com/choice-heavy-duty-32-oz-translucent-plastic-deli-container-and-lid-combo-pack-case/128HD32COMBO.html",
+      "extracted_case_pack_size": 240,
+      "cases_added_to_cart": 3,
+      "calculated_total_units": 720
+    },
+    {
+      "item_id": "item_005",
+      "product_name_chosen": "Lavex Li'l Herc 12-16 Gallon 1 Mil 24\" x 33\" Low-Density Medium-Duty Clear Can Liner / Trash Bag - 250/Case",
+      "product_url": "https://www.webstaurantstore.com/lil-herc-medium-duty-clear-12-16-gallon-low-density-can-liner-trash-bag-1-mil-24-x-33-case/5012433M1C.html",
+      "extracted_case_pack_size": 250,
+      "cases_added_to_cart": 1,
+      "calculated_total_units": 250
+    },
+    {
+      "item_id": "item_006",
+      "product_name_chosen": "Choice 50g Stainless Steel Scrubber - 12/Pack",
+      "product_url": "https://www.webstaurantstore.com/choice-50g-stainless-steel-scrubber-pack/483SS50SCRUB.html",
+      "extracted_case_pack_size": 12,
+      "cases_added_to_cart": 5,
+      "calculated_total_units": 60
+    }
+  ],
+  "total_items_added": 6,
+  "failures": []
+}

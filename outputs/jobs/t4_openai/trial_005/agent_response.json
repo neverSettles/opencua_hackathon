@@ -1,0 +1,49 @@
+{
+  "sourcing": {
+    "9781594631931": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 4.01,
+      "shipping": 0.0,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?kn=9781594631931&sts=t"
+    },
+    "9781400032716": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 3.78,
+      "shipping": 0.0,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?kn=9781400032716&sts=t"
+    },
+    "9781250062185": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 3.79,
+      "shipping": 0.0,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?kn=9781250062185&sts=t"
+    },
+    "9780394720241": {
+      "seller": "AbeBooks",
+      "condition": "New",
+      "price": 12.08,
+      "shipping": 3.99,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?kn=9780394720241&sts=t&sortby=17"
+    },
+    "9781590176139": {
+      "seller": "AbeBooks",
+      "condition": "Very Good",
+      "price": 6.69,
+      "shipping": 0.0,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?kn=9781590176139&sts=t"
+    },
+    "9780385333849": {
+      "seller": "BetterWorldBooks",
+      "condition": "Good",
+      "price": 6.4,
+      "shipping": 0.0,
+      "listing_url": "https://www.betterworldbooks.com/search/results?q=9780385333849"
+    }
+  },
+  "total_cost": 40.74,
+  "currency": "USD",
+  "reasoning": "AbeBooks had the lowest eligible Good-or-better USD copies for five titles, with free shipping on all except The Power Broker, where the cheapest eligible AbeBooks listing was New at $12.08 plus $3.99 shipping. Better World Books was slightly cheaper than AbeBooks for Slaughterhouse-Five at $6.40 with free shipping. ThriftBooks consolidation did not beat these prices even with free shipping over the threshold, and Powell's flat shipping was not advantageous."
+}

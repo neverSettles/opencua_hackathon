@@ -15,9 +15,12 @@ archive/crawls/
 archive/wacz/*.wacz
 archive/collections/
 
-outputs/
 *.log
 
 .DS_Store
 .idea/
 .vscode/
+outputs/jobs/*/trial_*/*.png
+outputs/harbor/
+outputs/t2_*/
+outputs/t2_spike_*/

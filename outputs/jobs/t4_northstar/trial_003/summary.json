@@ -1,0 +1,16 @@
+{
+  "task": "T4",
+  "adapter": "northstar",
+  "model_id": "tzafon.northstar-cua-fast",
+  "trial": 3,
+  "session_id": "zru4pdlx0d7lbiahth2njwkx",
+  "live_view": "https://proxy.yul-compassionate-mclean.onkernel.com:8443/browser/live/Sv3p4TIirZZ3",
+  "status": "stopped_no_action",
+  "total_steps": 7,
+  "total_actions": 3,
+  "elapsed_seconds": 59.6,
+  "parsed_json_present": false,
+  "headline": null,
+  "score": null,
+  "out_dir": "/Users/christophersettles/code/refresh/opencua_hackathon/outputs/jobs/t4_northstar/trial_003"
+}

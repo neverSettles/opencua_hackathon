@@ -1,0 +1,20 @@
+{
+  "job_name": "t2_openai",
+  "task": "T2",
+  "model": "openai",
+  "model_id": "gpt-5.5",
+  "total_trials": 1,
+  "completed_trials": 1,
+  "pass_rate": 1.0,
+  "mean_headline": 0.49999999999999994,
+  "min_headline": 0.49999999999999994,
+  "max_headline": 0.49999999999999994,
+  "per_trial": [
+    {
+      "trial": 16,
+      "status": "json_in_message",
+      "headline": 0.49999999999999994,
+      "elapsed": 1402.5
+    }
+  ]
+}

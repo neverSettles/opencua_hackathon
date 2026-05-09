@@ -1,0 +1,16 @@
+{
+  "task": "T2",
+  "adapter": "northstar",
+  "model_id": "tzafon.northstar-cua-fast",
+  "trial": 4,
+  "session_id": "ub0ryncb9s9osorwd4yviiaj",
+  "live_view": "https://proxy.iad-pedantic-rhodes.onkernel.com:8443/browser/live/Qwc1b7OMC5vc",
+  "status": "stopped_no_action",
+  "total_steps": 15,
+  "total_actions": 8,
+  "elapsed_seconds": 189.1,
+  "parsed_json_present": false,
+  "headline": null,
+  "score": null,
+  "out_dir": "/Users/christophersettles/code/refresh/opencua_hackathon/outputs/jobs/t2_northstar/trial_004"
+}

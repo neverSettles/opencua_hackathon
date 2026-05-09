@@ -1,0 +1,31 @@
+{
+  "task": "T4",
+  "adapter": "openai",
+  "model_id": "gpt-5.5",
+  "trial": 19,
+  "session_id": "c0hr5wwcxcc7ebbyw6b9c16n",
+  "live_view": "https://proxy.iad-elated-ellis.onkernel.com:8443/browser/live/wq3uPZcgngH2",
+  "status": "json_in_message",
+  "total_steps": 69,
+  "total_actions": 285,
+  "elapsed_seconds": 1299.9,
+  "parsed_json_present": true,
+  "headline": 0.7666666666666666,
+  "score": {
+    "validity": 0.6666666666666666,
+    "completeness": 1.0,
+    "cost_correctness": 1,
+    "optimality": 0.0,
+    "recomputed_total": 41.41,
+    "claimed_total": 41.41,
+    "optimum": 41.41,
+    "headline": 0.7666666666666666,
+    "weights_used": {
+      "validity": 0.4,
+      "completeness": 0.3,
+      "cost_correctness": 0.2,
+      "optimality": 0.1
+    }
+  },
+  "out_dir": "/Users/christophersettles/code/refresh/opencua_hackathon/outputs/jobs/t4_openai/trial_019"
+}

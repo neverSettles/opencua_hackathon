@@ -1,0 +1,20 @@
+{
+  "chosen_product": {
+    "product_url": "https://www.rei.com/product/237610/merrell-moab-speed-2-mid-gore-tex-hiking-boots-mens",
+    "product_name": "Moab Speed 2 Mid GORE-TEX Hiking Boots - Men's"
+  },
+  "extracted_attributes": {
+    "price": 185,
+    "weight_oz": 30,
+    "waterproof": true,
+    "height_category": "mid",
+    "rating": 4.4,
+    "review_count": 509
+  },
+  "cart_added": {
+    "size": "10.5",
+    "quantity": 1,
+    "in_stock_at_add": true
+  },
+  "reasoning": "Filtered/evaluated men's hiking boots for waterproof mid/high-cut models under $250 with size 10.5 available. This Merrell GORE-TEX mid boot meets the waterproof, height, price, and sub-40-oz pair-weight constraints, has 509 reviews with a 4.4 average rating, and size 10.5 was selectable and successfully added to the cart."
+}

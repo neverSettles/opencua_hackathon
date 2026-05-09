@@ -1,0 +1,49 @@
+{
+  "sourcing": {
+    "9781594631931": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 4.01,
+      "shipping": 0,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?cond=vg%20good&ds=20&dym=on&kn=9781594631931&rollup=on&sortby=17"
+    },
+    "9781400032716": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 3.78,
+      "shipping": 0,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?cond=vg%20good&ds=20&dym=on&kn=9781400032716&rollup=on&sortby=17"
+    },
+    "9781250062185": {
+      "seller": "AbeBooks",
+      "condition": "Good",
+      "price": 3.79,
+      "shipping": 0,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?cond=vg%20good&ds=20&dym=on&kn=9781250062185&rollup=on&sortby=17"
+    },
+    "9780394720241": {
+      "seller": "AbeBooks",
+      "condition": "New",
+      "price": 12.08,
+      "shipping": 3.99,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?ds=20&dym=on&kn=9780394720241&rollup=on&sortby=17"
+    },
+    "9781590176139": {
+      "seller": "AbeBooks",
+      "condition": "Very Good",
+      "price": 6.69,
+      "shipping": 0,
+      "listing_url": "https://www.abebooks.com/servlet/SearchResults?cond=vg%20good&ds=20&dym=on&kn=9781590176139&rollup=on&sortby=17"
+    },
+    "9780385333849": {
+      "seller": "BetterWorldBooks",
+      "condition": "Good",
+      "price": 6.4,
+      "shipping": 0,
+      "listing_url": "https://www.betterworldbooks.com/product/detail/slaughterhouse-five-a-novel-9780385333849"
+    }
+  },
+  "total_cost": 40.74,
+  "currency": "USD",
+  "reasoning": "AbeBooks had the lowest eligible total for five books, with free shipping on four and a quoted $3.99 shipment on The Power Broker. Better World Books was slightly cheaper than AbeBooks for Slaughterhouse-Five and ships free. ThriftBooks consolidation did not help because its eligible prices were higher even after crossing the free-shipping threshold, and Powell's used prices plus the $4.99 flat shipping did not beat the selected route."
+}

@@ -1,0 +1,20 @@
+{
+  "job_name": "t2_northstar",
+  "task": "T2",
+  "model": "northstar",
+  "model_id": "tzafon.northstar-cua-fast",
+  "total_trials": 1,
+  "completed_trials": 0,
+  "pass_rate": 0.0,
+  "mean_headline": null,
+  "min_headline": null,
+  "max_headline": null,
+  "per_trial": [
+    {
+      "trial": 4,
+      "status": "stopped_no_action",
+      "headline": null,
+      "elapsed": 189.1
+    }
+  ]
+}
