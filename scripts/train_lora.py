@@ -318,13 +318,20 @@ def main() -> None:
         seed=cfg.seed,
     )
 
-    trainer = Trainer(
+    # `tokenizer=` kwarg was renamed to `processing_class=` in transformers >=4.50.
+    trainer_kwargs: dict[str, Any] = dict(
         model=model,
         args=targs,
         train_dataset=ds,
         data_collator=_collator(processor, tokenizer, cfg),
-        tokenizer=tokenizer,
     )
+    import inspect as _insp  # noqa: PLC0415
+    init_params = _insp.signature(Trainer.__init__).parameters
+    if "processing_class" in init_params:
+        trainer_kwargs["processing_class"] = processor or tokenizer
+    elif "tokenizer" in init_params:
+        trainer_kwargs["tokenizer"] = tokenizer
+    trainer = Trainer(**trainer_kwargs)
 
     print("==> training...")
     trainer.train()
