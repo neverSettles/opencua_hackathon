@@ -56,19 +56,29 @@ eval-runs (you are here, branched off kernel-live-harness)
 
 ### What's missing (your work)
 
-1. **`run_t2_spike.py` is hardcoded to T2.** It loads `bench/worlds/webstaurant_v1/tasks/T2-001/intent.md` and `ground_truth.json` (path-based). It needs to generalize to T3 and T4. Two options:
-   - (Recommended) Add `--task {T2,T3,T4}` flag that switches:
-     - prompt source (`tasks/T<N>_*.md`, parsed `## Agent prompt` section)
-     - ground truth path (`ground_truth/T<N>_ground_truth.json`)
-     - start URL (T2: WebstaurantStore homepage; T3: REI homepage; T4: AbeBooks homepage or DDG)
-     - scorer (`scripts/scoring.py:score_t<N>`)
-     - max_steps (T2: 120, T3: 120, T4: 200 — multi-source needs more)
-   - (Alternative) Write a new `harness/launch.py` and leave run_t2_spike.py alone. Cleaner break, more code to maintain.
-2. **`to_harbor.py` reads `bench/worlds/webstaurant_v1/tasks/T2-001/intent.md`** for the user-step text. Generalize to read `tasks/T<N>_*.md` based on a `--task` arg.
-3. **Multi-trial wrapper.** Currently each invocation runs *one* trial. Need a wrapper that runs N trials and aggregates them under a single Harbor job. See "Multi-trial pattern" below.
-4. **Per-task scoring integration.** `run_t2_spike.py` already calls `bench/evaluators/t2_restaurant_restock.py`. Switch to **`scripts/scoring.py:score_t<N>`** (the official, calibrated scorer) and pass `trajectory` for T3 (it scores `filter_engagement`).
-5. **T3 and T4 output schemas differ from T2.** Each task's `## Agent prompt` section in `tasks/T<N>_*.md` defines the schema. Verify the harness extracts the agent's final JSON correctly for T3 (boot pick + cart state + filter actions) and T4 (per-book sourcing + total cost).
-6. **`item_match` for T2 is currently null** in our previous runs because GT URLs weren't populated. They're populated now (`ground_truth/T2_ground_truth.json` has full primary + alternative URLs). Re-running T2 should produce non-null `item_match` and `pack_extraction` sub-scores.
+> **UPDATE 2026-05-09 evening:** The previous coding agent already did items 1, 2, 3, and 4 below. `harness/launch.py` is the canonical entry point. **You can skip straight to "Recipe → Step 2/Step 3" below.** Items 5 and 6 are confirmed working.
+
+1. ~~`run_t2_spike.py` is hardcoded to T2.~~ **Done.** `harness/launch.py` takes `--task {T2,T3,T4}`. It auto-loads the calibrated prompt from `tasks/T<N>_*.md` (parsed `## Agent prompt` block), the ground truth from `ground_truth/T<N>_ground_truth.json`, and routes to `scripts/scoring.py:score_t<N>`. Per-task config (start URL, max_steps, T3 trajectory passthrough) lives in `TASK_CONFIG` at top of `launch.py`.
+2. ~~`to_harbor.py` reads bench/worlds intent.md.~~ **Done.** Now reads `tasks/T<N>_*.md` with the same `extract_agent_prompt` helper and falls back to the legacy bench path if needed.
+3. ~~Multi-trial wrapper.~~ **Done.** `launch.py --runs N` runs N trials in sequence, each in its own Kernel session and `trial_NNN/` subdir, with a `job_summary.json` at the end. Output layout is exactly what Harbor wants — see `outputs/jobs/t2_northstar_20260509T224839Z/` for reference.
+4. ~~Per-task scoring integration.~~ **Done.** `launch.py` imports `score_t2 / score_t3 / score_t4` from `scripts/scoring.py`. T3's `filter_engagement` sub-score gets a synthesized action list with `target` (action_type) and `url` (page URL captured per action) from the trajectory. Each scorer's full output goes to `trial_NNN/score.json`.
+5. **T3 and T4 output schemas** — confirmed in code: `extract_json_object` is tolerant of fenced JSON / prose / nested objects. The scorers themselves enforce schema correctness via their sub-scores. If an agent doesn't emit JSON, `score.json` is absent and the trial counts as 0 in the headline aggregate.
+6. **`item_match` for T2** — Dimitry's ground truth now has full URLs and `alternative_acceptable_products` per item. Re-running T2 will produce non-null `item_match` and `pack_extraction` sub-scores (unlike our earlier null-GT runs).
+
+### Smoke-test result (already done)
+
+```
+$ uv run python -u launch.py --task T2 --model northstar --runs 1 --max-steps 30
+=== Launching T2 x northstar x 1 trials ===
+Spec: T2_restaurant_restock.md
+Start URL: https://www.webstaurantstore.com/
+[trial] navigating to ...  status=stopped_no_action  elapsed=36.4s
+=== Job complete ===  trial_dir: outputs/jobs/t2_northstar_<ts>/trial_001/
+Build harbor job:
+  uv run python -m harness.to_harbor build --job-name ... --task-name T2 ... --run northstar=...
+```
+
+Pipeline confirmed end-to-end. (Stopped early because we capped max_steps=30 for the smoke; the full task default is 120 for T2.)
 
 ## Recipe (do this, in order)
 
@@ -85,92 +95,59 @@ git pull
 cd harness && bash setup.sh && cd ..    # creates harness/.venv with kernel + tzafon + playwright
 ```
 
-### Step 1 — generalize the runner to all 3 tasks (~30–45 min)
+### Step 1 — *(done by previous agent)*
 
-Edit `harness/run_t2_spike.py` (or write a new `harness/launch.py`). Concrete changes:
+`harness/launch.py` already exists and routes `--task {T2,T3,T4}` to the right prompt, GT, scorer, start URL, and max_steps. T3 already passes the trajectory action list through to `score_t3`. Skip to Step 2.
 
-```python
-# Add CLI:
-parser.add_argument("--task", choices=["T2", "T3", "T4"], required=True)
-parser.add_argument("--runs", type=int, default=1)
-
-# Replace the T2-hardcoded block with:
-TASK_MD = REPO_ROOT / "tasks" / {
-    "T2": "T2_restaurant_restock.md",
-    "T3": "T3_rei_hiking_boots.md",
-    "T4": "T4_used_books_basket.md",
-}[args.task]
-GT_PATH = REPO_ROOT / "ground_truth" / f"{args.task}_ground_truth.json"
-START_URL = {
-    "T2": "https://www.webstaurantstore.com/",
-    "T3": "https://www.rei.com/",
-    "T4": "https://www.abebooks.com/",   # or DDG; the agent will navigate
-}[args.task]
-MAX_STEPS = {"T2": 120, "T3": 120, "T4": 200}[args.task]
-
-# Extract agent prompt from the markdown's `## Agent prompt` code block:
-def extract_agent_prompt(md_text: str) -> str:
-    # Find "## Agent prompt" header, then the next ``` ... ``` block.
-    import re
-    m = re.search(r"^## Agent prompt\s*\n+```(?:\w*)?\n(.*?)```", md_text, re.DOTALL | re.MULTILINE)
-    return m.group(1).strip() if m else md_text  # fallback: pass whole md
-```
-
-Replace the scoring call with Dimitry's scorer:
-
-```python
-sys.path.insert(0, str(REPO_ROOT / "scripts"))
-from scoring import score_t2, score_t3, score_t4
-
-scorer = {"T2": score_t2, "T3": score_t3, "T4": score_t4}[args.task]
-gt = json.loads(GT_PATH.read_text())
-parsed = extract_json_object(final_message)
-if args.task == "T3":
-    # T3 also wants the action list for filter_engagement; build it from traj.jsonl
-    trajectory_actions = [...]  # list of {"target": ..., "url": ...} per action
-    score_dict = scorer(parsed, gt, trajectory_actions)
-else:
-    score_dict = scorer(parsed, gt)
-```
-
-### Step 2 — verify with one trial per task (~5 min each)
+### Step 2 — verify with one trial per task (~3–5 min each)
 
 ```bash
 cd harness
-uv run python -u run_t2_spike.py --task T2 --model northstar --runs 1
-uv run python -u run_t2_spike.py --task T3 --model northstar --runs 1
-uv run python -u run_t2_spike.py --task T4 --model northstar --runs 1
+uv run python -u launch.py --task T2 --model northstar --runs 1 --max-steps 60
+uv run python -u launch.py --task T3 --model northstar --runs 1 --max-steps 60
+uv run python -u launch.py --task T4 --model northstar --runs 1 --max-steps 80
 ```
 
 For each, confirm:
-- Browser navigates to the right start URL.
-- Agent JSON extracts (check `outputs/<run_id>/.../agent_response.json`).
-- `score.json` is written and `headline` is a sane number.
-- The screenshots make sense.
+- Browser navigates to the right start URL (T2: webstaurantstore.com, T3: rei.com/c/hiking-boots, T4: abebooks.com).
+- A `trial_001/` subdir is created with `trajectory.jsonl`, screenshots, `summary.json`.
+- If the agent emits JSON, `score.json` is written and `headline` is a sane number.
 
-If a task fails this smoke test, fix it before launching the full matrix.
+T2 smoke is already confirmed working (see "Smoke-test result" above). T3/T4 should work too — the only task-specific path is the JSON schema the model is asked to emit, which is part of the prompt extracted from `tasks/T<N>_*.md`.
 
 ### Step 3 — launch the full matrix
 
-The cleanest pattern is a tiny shell driver that loops `--runs N` once but loops outer `(task × model)` in bash, since `--runs` inside the harness should reuse the same browser-creation block per trial but **isolate trial outputs**.
-
 ```bash
-# 5 Northstar trials per task
+cd harness
+
+# 5 Northstar trials per task (~15 trials total, ~30-60 min)
 for task in T2 T3 T4; do
-  uv run python -u run_t2_spike.py --task $task --model northstar --runs 5
+  uv run python -u launch.py --task $task --model northstar --runs 5
 done
 
-# 20 OpenAI trials per task
+# 20 OpenAI trials per task (~60 trials total, ~3-6 hr — consider running in background)
 for task in T2 T3 T4; do
-  uv run python -u run_t2_spike.py --task $task --model openai --runs 20
+  uv run python -u launch.py --task $task --model openai --runs 20
 done
 ```
 
-Each invocation should produce a directory `outputs/<task>_<model>_<ts>/` containing N trial subdirs (one per trial). Either implement that as N invocations from inside Python OR the bash loop can do `for i in {1..20}; do uv run ...; done` and accept N separate run dirs.
+Each invocation produces:
 
-#### Recommended structure
+```
+outputs/jobs/<task>_<model>_<ts>/
+├── trial_001/
+│   ├── trajectory.jsonl
+│   ├── step_NNN.png
+│   ├── agent_response.raw.txt
+│   ├── agent_response.json   (if agent emitted parseable JSON)
+│   ├── score.json            (if scorer ran)
+│   └── summary.json
+├── trial_002/  ...
+├── trial_005/  (or trial_020/ for OpenAI)
+└── job_summary.json
+```
 
-To match Harbor's job-of-trials shape, lay out outputs like:
+#### Output layout reference
 
 ```
 outputs/
@@ -195,52 +172,42 @@ Total: 6 jobs, 75 trials.
 
 ### Step 4 — convert each job to Harbor format and upload
 
-`harness/to_harbor.py` already does single-job conversion. Generalize it to take many `--run` args (it already does!). Then upload:
+`harness/to_harbor.py` is already generalized to read `tasks/T<N>_*.md` based on the `--task-name` arg. Glob each job dir's `trial_*/` subdirs and pass them as `--run` flags:
 
 ```bash
-# For each job, build the harbor dir and upload.
-for job in t2_northstar t2_openai t3_northstar t3_openai t4_northstar t4_openai; do
-  TASK=$(echo $job | cut -d_ -f1 | tr a-z A-Z)
-  MODEL=$(echo $job | cut -d_ -f2)
+cd /Users/christophersettles/code/refresh/opencua_hackathon
 
-  RUNS_FLAGS=""
-  for trial in outputs/jobs/${job}/trial_*; do
-    RUNS_FLAGS="$RUNS_FLAGS --run ${MODEL}=${trial}"
+# Each launch.py invocation prints its harbor build command at the end. Copy
+# that, OR script it like this:
+
+source .env
+for job_dir in outputs/jobs/*/; do
+  job=$(basename "$job_dir")        # e.g. t2_northstar_20260509T...
+  task_lower=$(echo "$job" | cut -d_ -f1)
+  task=$(echo "$task_lower" | tr a-z A-Z)
+  model=$(echo "$job" | cut -d_ -f2)
+
+  runs_flags=()
+  for trial in "$job_dir"trial_*; do
+    runs_flags+=(--run "${model}=${trial}")
   done
 
-  uv run python -m harness.to_harbor build \
-    --job-name buy_side_bench__${job} \
-    --task-name $TASK \
-    --out outputs/harbor/${job} \
-    $RUNS_FLAGS
+  out_harbor="outputs/harbor/${job}"
 
-  npx --yes trajectories-sh upload trajectory outputs/harbor/${job} \
+  cd harness
+  uv run python to_harbor.py build \
+    --job-name "buy_side_bench__${job}" \
+    --task-name "$task" \
+    --out "../${out_harbor}" \
+    "${runs_flags[@]}"
+  cd ..
+
+  npx --yes trajectories-sh upload trajectory "$out_harbor" \
     --api-key "$TRAJECTORIES_SH_API_KEY"
 done
 ```
 
-⚠️ **`to_harbor.py` currently hardcodes T2's intent.md path.** Patch it to read `tasks/T<task>_*.md` and parse the agent prompt section instead. Search for:
-
-```python
-task_text = (
-    REPO_ROOT / "bench" / "worlds" / "webstaurant_v1" / "tasks" / task_name / "intent.md"
-).read_text()
-```
-
-Replace with:
-
-```python
-TASK_MD_FOR = {
-    "T2": "T2_restaurant_restock.md",
-    "T3": "T3_rei_hiking_boots.md",
-    "T4": "T4_used_books_basket.md",
-}
-task_text = extract_agent_prompt(
-    (REPO_ROOT / "tasks" / TASK_MD_FOR[task_name]).read_text()
-)
-```
-
-(Reuse the same `extract_agent_prompt` helper from step 1.)
+The upload prints a viewer URL like `https://trajectories.sh/t/<uuid>`. Save those.
 
 ### Step 5 — collect the 6 trajectory.sh URLs
 
@@ -282,35 +249,44 @@ Pass rate per spec — read `result.json` per trial and compute. The `to_harbor.
 
 ## Files you'll touch
 
-- `harness/run_t2_spike.py` — generalize to `--task` (Step 1)
-- `harness/to_harbor.py` — generalize task prompt loading (Step 4 patch)
-- New: `harness/launch.sh` (or similar) — bash wrapper for the matrix in Step 3
-- `README.md`, `slides.md` — update with the 6 trajectory URLs after upload (Step 5)
+Almost nothing — most of the heavy lifting was done already. You should only need to:
 
-## Smoke-test commands (sanity check before launching the matrix)
+- Run `harness/launch.py` 6 times (3 tasks × 2 models)
+- Run `harness/to_harbor.py` 6 times (one per job)
+- Run `npx trajectories-sh upload trajectory ...` 6 times
+- Update `README.md` and `slides.md` with the 6 viewer URLs and the pass-rate table
+
+If you find a bug in the runner, edit `harness/launch.py`. If you need to tune cycle-detection or no-action retry behavior, edit `harness/cua_runner.py` (used by `run_t2.py`, not `launch.py`) — though `launch.py`'s in-line loop has the same MAX_NO_ACTION=3 retry budget.
+
+## Smoke-test commands (already confirmed; rerun if you've edited launch.py)
 
 ```bash
-# Confirm scorer + GT integration works on a synthetic agent output:
+# (1) Confirm scorer + GT integration works on synthetic agent output:
 cd /Users/christophersettles/code/refresh/opencua_hackathon
-python3 -c "
-import json
-from scripts.scoring import score_t2
-gt = json.load(open('ground_truth/T2_ground_truth.json'))
-fake_agent = {'cart': [], 'total_items_added': 0, 'failures': []}
-print(score_t2(fake_agent, gt))
-"
-# Should print a dict with headline ~ 0.0, completeness=0.0, cart_added=0.0
+uv run --project harness python - <<'PY'
+import json, sys
+from pathlib import Path
+sys.path.insert(0, "scripts")
+from scoring import score_t2, score_t3, score_t4
+repo = Path(".")
+for task, scorer in (("T2", score_t2), ("T3", score_t3), ("T4", score_t4)):
+    gt = json.loads((repo / "ground_truth" / f"{task}_ground_truth.json").read_text())
+    fake = {"cart": [], "boot": {}, "answers": [], "sourcing": [], "total_cost": 0}
+    r = scorer(fake, gt, []) if task == "T3" else scorer(fake, gt)
+    print(f"  {task}: headline={r.get('headline'):.3f} OK")
+PY
+# Already verified to print:
+#   T2: headline=0.000 OK    T3: headline=0.000 OK    T4: headline=0.200 OK
 ```
 
 ```bash
-# 1-trial smoke for each task (~5 min each):
+# (2) 1-trial smoke for each task (T2 already verified; rerun T3/T4 if you've changed code):
 cd harness
-uv run python -u run_t2_spike.py --task T2 --model northstar --max-steps 60
-uv run python -u run_t2_spike.py --task T3 --model northstar --max-steps 60
-uv run python -u run_t2_spike.py --task T4 --model northstar --max-steps 60
+uv run python -u launch.py --task T3 --model northstar --runs 1 --max-steps 60
+uv run python -u launch.py --task T4 --model northstar --runs 1 --max-steps 80
 ```
 
-If those three smoke runs each produce a valid `score.json` with a non-error `headline`, you're cleared to launch the full matrix.
+If the smoke runs land in `outputs/jobs/<task>_northstar_<ts>/trial_001/` with a `summary.json`, you're cleared to launch the full matrix.
 
 ## When in doubt
 

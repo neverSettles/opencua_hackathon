@@ -313,7 +313,11 @@ def _convert_flat_actions(
     task_text: str,
 ) -> tuple[dict, list[tuple[str, bytes]]]:
     """Convert a teammate adapter run (trajectory.jsonl + step_NNN.png)."""
-    rows = _read_jsonl(run_dir / "trajectory.jsonl")
+    all_rows = _read_jsonl(run_dir / "trajectory.jsonl")
+    # launch.py writes mixed rows (action / no_action / terminal). Keep only
+    # action rows for the action-grouping pass; surface terminal/message rows
+    # via the agent's final message instead (already in agent_response.raw.txt).
+    rows = [r for r in all_rows if "action_type" in r and "ts" in r]
     raw_screens = _gather_screenshots_flat(run_dir)
 
     # Screenshots from teammate are step_000_initial.png plus step_NNN.png.
@@ -329,8 +333,12 @@ def _convert_flat_actions(
         jpg_name = f"step-{idx:02d}.jpg"
         screenshots.append((jpg_name, _png_to_jpg_bytes(src)))
 
-    started_at = _ensure_iso(rows[0]["ts"]) if rows else ISO_FALLBACK
-    finished_at = _ensure_iso(rows[-1]["ts"]) if rows else ISO_FALLBACK
+    if rows:
+        started_at = _ensure_iso(rows[0].get("ts"))
+        finished_at = _ensure_iso(rows[-1].get("ts"))
+    else:
+        started_at = ISO_FALLBACK
+        finished_at = ISO_FALLBACK
 
     initial_screenshot = "step-00.jpg" if screenshots else None
     steps: list[dict] = [
@@ -528,6 +536,37 @@ def convert_run_to_trial(
     }
 
 
+TASK_SPEC_MD = {
+    "T2": "T2_restaurant_restock.md",
+    "T2-001": "T2_restaurant_restock.md",
+    "T3": "T3_rei_hiking_boots.md",
+    "T4": "T4_used_books_basket.md",
+}
+
+
+def _task_prompt_for(task_name: str) -> str:
+    """Read the agent prompt (fenced block under ## Agent prompt) from the
+    canonical task spec. Falls back to bench/worlds/<world>/tasks/<id>/intent.md
+    if the new path isn't present (older runs)."""
+    md_name = TASK_SPEC_MD.get(task_name)
+    if md_name:
+        md_path = REPO_ROOT / "tasks" / md_name
+        if md_path.exists():
+            text = md_path.read_text()
+            m = re.search(
+                r"^##\s+Agent prompt\s*\n+```(?:\w*)?\n(.*?)```",
+                text,
+                re.DOTALL | re.MULTILINE,
+            )
+            if m:
+                return m.group(1).strip()
+            return text
+    legacy = REPO_ROOT / "bench" / "worlds" / "webstaurant_v1" / "tasks" / task_name / "intent.md"
+    if legacy.exists():
+        return legacy.read_text()
+    return f"(task prompt for {task_name} not found)"
+
+
 def build_job(
     *,
     job_name: str,
@@ -536,9 +575,7 @@ def build_job(
     runs: list[tuple[str, Path]],
 ) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
-    task_text = (
-        REPO_ROOT / "bench" / "worlds" / "webstaurant_v1" / "tasks" / task_name / "intent.md"
-    ).read_text()
+    task_text = _task_prompt_for(task_name)
 
     trials_built: list[dict] = []
     by_agent: dict[str, list[float]] = {}
