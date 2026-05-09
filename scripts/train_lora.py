@@ -50,27 +50,19 @@ def _action_to_text(action: dict[str, Any]) -> str:
     return json.dumps(action, sort_keys=True)
 
 
-def _format_example(ex: dict[str, Any]) -> dict[str, Any]:
-    """Build a (prompt, completion, image) triple. The chat template is what
-    most VLM trainers expect; SFTTrainer can also take pre-tokenized inputs."""
-    instruction = ex["instruction"]
-    action_text = _action_to_text(ex["action"])
-    img_path = ex["current_image_path"]
+_SYSTEM_PROMPT = (
+    "You are a computer-use agent. Given the current screenshot and task, "
+    "emit the next browser action as a JSON object."
+)
 
-    # Conversation-style format. Adjust the system role / image tag if the
-    # tokenizer expects something specific (e.g. <|image|>, <image>).
-    messages = [
-        {"role": "system", "content": "You are a computer-use agent. Given the current screenshot and task, emit the next browser action as a JSON object."},
-        {"role": "user", "content": [
-            {"type": "image"},
-            {"type": "text", "text": instruction},
-        ]},
-        {"role": "assistant", "content": action_text},
-    ]
+
+def _format_example(ex: dict[str, Any]) -> dict[str, Any]:
+    """Return flat string columns. PyArrow chokes on mixed-content message
+    arrays; the collator rebuilds the chat structure from these strings."""
     return {
-        "messages": messages,
-        "image_path": img_path,
-        "completion": action_text,
+        "instruction": ex["instruction"],
+        "image_path": ex["current_image_path"],
+        "completion": _action_to_text(ex["action"]),
     }
 
 
@@ -193,6 +185,18 @@ def _attach_lora(model, cfg: TrainConfig):
     return model
 
 
+def _build_messages(instruction: str, completion: str) -> list[dict[str, Any]]:
+    """Reconstruct the chat structure from flat columns at collate time."""
+    return [
+        {"role": "system", "content": _SYSTEM_PROMPT},
+        {"role": "user", "content": [
+            {"type": "image"},
+            {"type": "text", "text": instruction},
+        ]},
+        {"role": "assistant", "content": completion},
+    ]
+
+
 def _collator(processor, tokenizer, cfg: TrainConfig):
     """Build batches of (image, prompt, completion) → input_ids/labels.
 
@@ -202,15 +206,18 @@ def _collator(processor, tokenizer, cfg: TrainConfig):
     """
     def _collate(examples: list[dict[str, Any]]):
         images = [Image.open(ex["image_path"]).convert("RGB") for ex in examples]
-        # Use the chat template if available
         try:
             prompts = [
-                tokenizer.apply_chat_template(ex["messages"], tokenize=False, add_generation_prompt=False)
+                tokenizer.apply_chat_template(
+                    _build_messages(ex["instruction"], ex["completion"]),
+                    tokenize=False,
+                    add_generation_prompt=False,
+                )
                 for ex in examples
             ]
         except Exception:
             prompts = [
-                f"Instruction: {ex['messages'][1]['content'][1]['text']}\nAction: {ex['completion']}"
+                f"Instruction: {ex['instruction']}\nAction: {ex['completion']}"
                 for ex in examples
             ]
         if processor is not None:
