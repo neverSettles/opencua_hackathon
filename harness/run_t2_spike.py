@@ -87,7 +87,7 @@ def _ensure_keys(model: str) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default="northstar", choices=["northstar", "gemini", "openai", "anthropic"])
+    parser.add_argument("--model", default="northstar", choices=["northstar", "gemini", "openai", "anthropic", "local"])
     parser.add_argument("--northstar-model", default="tzafon.northstar-cua-fast",
                         help="Specific Northstar variant (e.g. tzafon.northstar-cua-fast-1.7-experiment)")
     parser.add_argument("--gemini-model", default="gemini-3-pro-preview",
@@ -96,6 +96,10 @@ def main() -> int:
                         help="Specific OpenAI model (gpt-5.5, gpt-5.4, computer-use-preview)")
     parser.add_argument("--anthropic-model", default="claude-opus-4-7",
                         help="Specific Anthropic model (claude-opus-4-7, claude-sonnet-4-6)")
+    parser.add_argument("--local-base", default="Tzafon/Northstar-CUA-Fast",
+                        help="Local-mode: HF base model id")
+    parser.add_argument("--local-adapter", default="checkpoints/northstar-cua-fast-sft/adapter",
+                        help="Local-mode: path to LoRA adapter")
     parser.add_argument("--mini", action="store_true", help="Single-item smoke test")
     parser.add_argument("--max-steps", type=int, default=120)
     parser.add_argument("--start-url", default=START_URL)
@@ -123,10 +127,18 @@ def main() -> int:
             viewport_w=VIEWPORT_W,
             viewport_h=VIEWPORT_H,
         )
-    else:  # anthropic
+    elif args.model == "anthropic":
         adapter = build_adapter(
             "anthropic",
             model_id=args.anthropic_model,
+            viewport_w=VIEWPORT_W,
+            viewport_h=VIEWPORT_H,
+        )
+    else:  # local (fine-tuned Northstar)
+        adapter = build_adapter(
+            "local",
+            base_model=args.local_base,
+            adapter_path=args.local_adapter,
             viewport_w=VIEWPORT_W,
             viewport_h=VIEWPORT_H,
         )

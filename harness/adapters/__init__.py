@@ -35,4 +35,8 @@ def build_adapter(name: str, **kwargs) -> ModelAdapter:
         return OpenAIComputerUseAdapter(**kwargs)
     if name in ("anthropic", "claude", "opus", "sonnet"):
         return AnthropicDirectAdapter(**kwargs)
+    if name in ("local", "local_northstar", "local-northstar", "finetuned"):
+        # Lazy import: only available where torch + peft are installed.
+        from .local_northstar import LocalNorthstarAdapter
+        return LocalNorthstarAdapter(**kwargs)
     raise ValueError(f"unknown adapter: {name!r}")
